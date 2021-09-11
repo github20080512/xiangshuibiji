@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>Diary</title>
+    <style>
+        body,
+        p {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .left {
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        body {
+            background-color: #eff4f7;
+        }
+        
+        .header {
+            width: 100%;
+            height: 50px;
+            background: #222;
+        }
+        
+        .container {
+            width: 992px;
+            margin: 0 auto;
+        }
+        
+        .footer .container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .content .container,
+        .footer .container {
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        .header a {
+            color: #999;
+            padding: 15px;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 20px;
+        }
+        
+        .header a:hover {
+            color: #fff;
+        }
+        
+        .new-user {
+            margin-top: 15px;
+            margin: 15px;
+        }
+        
+        .new-user a {
+            color: #428bca;
+        }
+        
+        .img-wrapper {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            overflow: hidden;
+            margin-top: -6px;
+            vertical-align: middle;
+        }
+        
+        .img-wrapper img {
+            width: 100%;
+        }
+        
+        .user {
+            display: inline-block;
+        }
+        
+        .user span {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .preview {
+            width: 100%;
+            border-radius: 4px;
+            background: #fff;
+            padding: 0 25px;
+            margin-bottom: 20px;
+            padding-bottom: 23px;
+            cursor: pointer;
+        }
+        
+        .preview .date {
+            height: 50px;
+            line-height: 50px;
+        }
+        
+        .preview .words {
+            min-height: 37px;
+        }
+        /* new add */
+        
+        .no-diary {
+            padding: 35px 0;
+            height: 500px;
+            line-height: 500px;
+        }
+        
+        .no-diary .user {
+            color: rgb(0, 0, 0);
+            padding: 0px 15px;
+        }
+        
+        .no-diary p {
+            color: orange;
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .article {
+            text-indent: 25px;
+            margin-top: 10px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="links">
+                <div class="left">
+                    <a href="">My diary</a>
+                    <a href="/pay">Pay</a>
+                </div>
+                <div class="right">
+                    <a href="/write">Write diary</a>
+                    <div class="user">
+                        <div class="img-wrapper">
+                            <img src="/img/beer.jpg" alt="" />
+                        </div>
+                        <span> {{user}}</span>
+                    </div>
+                    <a href="/logout">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div id="article"></div>
+            <div class="new-user" style="display: none">
+                <a href="">load more</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">© 2015 - 2021 MyDiary</div>
+    </div>
+    <script src="/jquery/dist/jquery.js"></script>
+
+    <script>
+        let theData = {};
+        $.ajax({
+            url: "/getDiary",
+            type: "post",
+            data: "",
+            dataType: "json",
+            success: function(data) {
+                theData = data;
+                if (data) {
+                    data.reverse();
+                    data.forEach((item) => {
+                        let article = item.article.split("\n");
+                        let renderStr = ``;
+                        article.forEach((item) => {
+                            renderStr += `<p class="article">${item}</p>`;
+                        });
+                        $(
+                            "#article"
+                        )[0].innerHTML += ` <div class="preview"> <div class="date">${item.date}</div> <div class="words">${renderStr}</div> </div>`;
+                    });
+                    let previews = document.getElementsByClassName("preview");
+                    for (let i = 0; i < previews.length; i++) {
+                        previews[i].onclick = function() {
+                            let dateStr = this.getElementsByClassName("date")[0].innerText;
+
+                            $.ajax({
+                                url: "/detail",
+                                type: "post",
+                                data: {
+                                    dateStr,
+                                },
+                                dataType: "json",
+                                success: function(data) {
+                                    window.location.href = "/detail";
+                                },
+                            });
+                        };
+                    }
+                }
+                if (data.length == 0) {
+                    $(
+                        "#article"
+                    )[0].innerHTML += `<div class="preview"> <div class="no-diary"> <p class="words">hello,<span class="user">  {{user}}  </span>you have not a diary yet.</p> </div></div>`;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

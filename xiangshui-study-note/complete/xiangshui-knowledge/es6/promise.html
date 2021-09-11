@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("21222");
+        }, 1000);
+      })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("success");
+          // reject("21222");
+        }, 1000);
+      }).then(
+        (data) => {
+          console.log(data);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+      //promise 链式调用
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("aaa");
+        }, 1000);
+      })
+        .then((res) => {
+          console.log(res, "第一次");
+          return new Promise((resolve) => {
+            resolve(res + "111");
+          });
+        })
+        .then((res) => {
+          console.log(res, "第2次");
+          //简写
+          return Promise.resolve(res + "222");
+        })
+        .then((res) => {
+          console.log(res, "第3次");
+          //简写 省略promise.resolve
+          return res + "333";
+        })
+        .then((res) => {
+          console.log(res, "第4次");
+        });
+
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("aaa");
+        }, 1000);
+      })
+        .then((res) => {
+          console.log(res, "第一次");
+          return new Promise((resolve) => {
+            resolve(res + "111");
+          });
+        })
+        .then((res) => {
+          console.log(res, "第2次");
+          //简写
+          // return Promise.reject("err message");
+          throw "throw err message";
+        })
+        .then((res) => {
+          console.log(res, "第3次");
+          //简写 省略promise.resolve
+          return res + "333";
+        })
+        .then((res) => {
+          console.log(res, "第4次");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      // promise.all;
+      Promise.all([
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({ name: "cold", age: "15" });
+          }, 2000);
+        }),
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({ name: "snow", age: "13" });
+          }, 1000);
+        }),
+      ]).then((results) => {
+        console.log(results);
+      });
+
+      var obj = {
+        songs: [
+          "燕无歇",
+          "咱们结婚吧",
+          "唐人",
+          "我的新衣",
+          "那座城 小洲/杨菲",
+          "黑暗骑士",
+          "一丝不挂",
+          "漫步人生路",
+          "再见亦是泪",
+          "曾经心痛",
+          "The Sound of Silence",
+          "春泥",
+          "把悲伤留给自己",
+          "我要找到你",
+          "bad habits",
+          "烟雨（唯美解压轻音乐",
+          "毛不易  项羽虞姬",
+          "曾经最美",
+          "网易云 海底",
+        ],
+        str2: "O94FV1J67MH2KEZYU30PIL8B5SQAGRCTDNXW",
+        str: "github20080512 protonmail",
+        str1: "）uVqy]z=O】H/o。,（I%\"8}U<+M-C!S@a4kQl7：‘~P6; 》FiJ&*”r9nb#B1m《；2d！ZW:E—L，fs$hw3{AjtD(【evT5c.KYGxX'[p’gN)“R>…",
+        "str3":
+          "https://www.zhihu.com/question/21227046 == 有氧运动和无氧运动有哪些区别？####https://www.bilibili.com/video/BV11J411y7Nz?p=3&spm_id_from=pageDriver == (2020年最新)Gulp，项目自动化构建工具全套视频（6）_哔哩哔哩####https://www.cnblogs.com/xiaozong/p/4961929.html == chrome浏览器调试功能之后端篇####https://www.zhihu.com/question/424565563/answer/1512913686 == 学习的时候容易分神，不专注，怎么办？ - 知乎####https://zhidao.baidu.com/question/433303505441656972.html?qbl=relate_question_0&word=%CB%A2%B6%B6%D2%F4%BB%E1%B2%BB%BB%E1%C8%C3%B4%F3%C4%D4%B7%D6%C9%F1 == 经常刷抖音有什么危害?####https://www.zhihu.com/question/296597311 == 脑子停不下来怎么办？",
+      };
+    </script>
+  </body>
+</html>

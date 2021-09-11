@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>serve</title>
+  <style>
+    html,
+    body {
+      font-size: 10px;
+    }
+
+    .group {
+      display: inline-block;
+      margin-left: 15px;
+    }
+
+    .order {
+      font-size: 12px;
+      color: orange;
+      float: left;
+      margin-right: 50px;
+    }
+
+    .result {
+      float: left;
+    }
+
+    .quickLink span {
+      margin-left: 15px;
+    }
+
+    .link-result {
+      margin: 15px 3px;
+    }
+
+    .orange {
+      color: red;
+    }
+
+    .target-path {
+
+      margin-left: 45px !important;
+
+      color: grey;
+    }
+
+    .clearFix::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+
+    #info {
+      border-bottom: 1px solid greenyellow;
+      height: 200px;
+    }
+
+    /* tools */
+    body {
+      color: #202020;
+    }
+
+    .btn-area {
+      margin: 5px 0;
+    }
+
+    #divtable {
+      background: rgb(242, 255, 210);
+    }
+
+    .input-area1,
+    .input-area2 {
+      float: left;
+    }
+
+    #num1,
+    #num2 {
+      width: 270px;
+    }
+
+    #write1 {
+      background-color: rgb(255, 217, 217);
+      width: 270px;
+    }
+
+    #write2 {
+      background-color: rgba(218, 255, 228, 0.559);
+      word-break: break-all;
+      width: 270px;
+      margin-left: 5px;
+    }
+
+    .data-check-area {
+      margin-bottom: 400px;
+      width: 740px;
+    }
+
+    .reverse-sort {
+      margin-left: 5px;
+    }
+
+    /* char */
+    #char-dis1 {
+      white-space: nowrap;
+      font-weight: 100;
+    }
+
+    #char-dis2 {
+      white-space: nowrap;
+      color: orange;
+      font-weight: 100;
+
+    }
+
+    .mian-textarea {
+      background-color: honeydew;
+    }
+
+    h5 {
+      color: #fff;
+      font-size: 15px;
+      background-color: orange;
+      margin: 0;
+      padding: 5px;
+      font-weight: 200;
+    }
+
+    .char-div {
+      border-bottom: 1px solid red;
+      padding-bottom: 85px;
+    }
+
+    .random-input {
+      width: 30px;
+    }
+
+    .radio-input {
+      vertical-align: middle;
+    }
+
+    .random-sub {
+      margin: 5px 0;
+    }
+    #random-result{
+      height: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tools">
+    <div class="random-code">
+      <h5>random-code</h5>
+      <div class="btn-area">
+        <div> number: <input type="radio" class="radio-input" name="mode-select" checked value="1"> number-en: <input value="2"
+            name="mode-select" type="radio" class="radio-input"> </div>
+        <div class="random-sub"> length: <input type="text" id="random-input" class="random-input" value="4"> <button
+            id="get-random">get random</button></div>
+            <div class="random-sub"> original str: <input type="text" id="random-sort-input"  value=""> <button
+              id="random-sort">random sort</button></div>
+      </div>
+      <div id="random-result">
+
+      </div>
+      <script>
+        function getid(i) {
+          return document.getElementById(i);
+        }
+        function fnRandom(str){
+          var arr=str.split("")
+         for(let i=0;i<arr.length;i++){
+          arr.sort(()=>{return Math.random()-0.5})
+         }
+         return arr.join("")
+        }
+        getid("random-sort").onclick = function (){
+          let originalStr=getid("random-sort-input").value
+          let res=[]
+          for(let i=0;i<5;i++){
+              res.push(fnRandom(originalStr))
+            }
+          getid("random-result").innerHTML = res.join("<br>")
+
+        }
+        getid("get-random").onclick = function () {
+          var radioSelct = document.getElementsByName("mode-select")
+          var mode = ""
+          for (let i = 0; i < radioSelct.length; i++) {
+            if (radioSelct[i].checked == true) {
+              mode = radioSelct[i].value
+              break;
+            }
+          }
+          var charLength = getid("random-input").value
+     
+          let res =[]
+          if (mode == 1) {
+            let str = `0123456789`
+            for(let i=0;i<5;i++){
+              res.push(fnRandom(str).substring(0,charLength))
+            }
+          
+          } else {
+            let str = `0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`
+            for(let i=0;i<5;i++){
+              res.push(fnRandom(str).substring(0,charLength))
+            }
+          }
+          getid("random-result").innerHTML = res.join("<br>")
+        }
+
+      </script>
+    </div>
+    <div class="char-div">
+      <h5>Char</h5>
+      <div class="btn-area">
+        <button id="char-btn">compare/get length</button>
+      </div>
+      <div>
+        <textarea name="" id="t1" class="mian-textarea" cols="30" rows="10" placeholder="compare str"></textarea>
+        <textarea name="" id="t2" cols="30" rows="10"></textarea>
+
+      </div>
+      <div id="char-dis1"></div>
+      <div id="char-dis2"></div>
+      <div id="char-length"></div>
+      <script>
+        const replaceStr = (str, index, char) => {
+          return str.substring(0, index) + char + str.substring(index);
+        };
+
+
+        getid("char-btn").onclick = function () {
+          var containSpaceLength = getid("t1").value.length
+          getid("char-dis1").innerText = "";
+          getid("char-dis2").innerText = "";
+          var v1 = getid("t1").value.split("\n").map(function (item) { return item.trim() }).join("");
+          var noSpaceLength = v1.length
+          var v2 = getid("t2").value.split("\n").map(function (item) { return item.trim() }).join("");
+          if (v1 == v2) {
+            getid("char-dis1").innerText = "correct";
+            return;
+          }
+          for (let i = 0; i < v1.length; i++) {
+            if (v1[i] !== v2[i]) {
+              v1 = replaceStr(v1, i, "►►►");
+              break;
+            }
+          }
+
+          for (let i = 0; i < v2.length; i++) {
+            if (v1[i] !== v2[i]) {
+              v2 = replaceStr(v2, i, "►►►");
+              break;
+            }
+          }
+          getid("char-dis1").innerText = v1;
+          getid("char-dis2").innerText = v2;
+          getid("char-length").innerHTML = `Character length including spaces: ${containSpaceLength},<br>Character length without spaces: ${noSpaceLength} `
+        };
+      </script>
+
+    </div>
+    <div class="Mathematical-calculation">
+      <h5>Mathematical calculation</h5>
+      <div class="data-check-area">
+        <div class="btn-area">
+          <button id="get-sum">get sum</button>
+          <button id="get-diff">get difference</button>
+          <button id="get-repeat">get/delete repeat</button>
+          <button id="del-data">del data</button>
+          <button id="add2arr">add2arr</button><button class="reverse-sort">Reverse sort</button>
+        </div>
+        <div class="input-area1">
+          <div>
+            <textarea name="" id="num1" cols="30" rows="10" placeholder="Data to be deleted"></textarea>
+          </div>
+          <div>Data1 <strong id="total1"></strong></div>
+
+          <textarea name="" id="write1" cols="30" rows="10"></textarea>
+        </div>
+        <div class="input-area2">
+          <div>
+            <textarea name="" id="num2" cols="30" rows="10"
+              placeholder="The original data that will be deduplicated & Original data to be deleted & add2arr & reverse sort"></textarea>
+          </div>
+          <div>Data2 <strong id="total2"></strong></div>
+
+          <textarea name="" id="write2" cols="30" rows="10"></textarea>
+          <div id="result-inf">L:</div>
+        </div>
+        <div id="divtable" style="margin-top: 1 0px">
+          <table id="table2" border="1px" cellspacing="0" cellpadding="5">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="keycode">
+      <p>keyCode</p>
+      <input id="diskeycode" type="text" />
+      <script>
+        document.onkeydown = function (ev) {
+          document.getElementById("diskeycode").value =
+            ev.keyCode + "\t" + ev.key;
+        };
+      </script>
+    </div>
+    <hr />
+
+  </div>
+
+  <script>
+    function get(id) {
+      return document.getElementById(id);
+    }
+
+    function gClass(id) {
+      return document.getElementsByClassName(id);
+    }
+
+    function unique(arr) {
+      return Array.from(new Set(arr));
+    }
+    var oNum1 = get("num1");
+    var oNum2 = get("num2");
+    var oWrite1 = get("write1");
+    var oWrite2 = get("write2");
+    var getDiffBtn = get("get-diff");
+
+    let getSumBtn = get("get-sum");
+    var getRepeatBtn = get("get-repeat");
+    var oAdd = get("add2arr");
+    var arr11, arr22;
+
+    getSumBtn.onclick = function () {
+      calTotal(oNum1.value, oNum1, get("total1"));
+      calTotal(oNum2.value, oNum2, get("total2"));
+      get("result-inf").innerHTML =
+        "data1-data2=" + (get("total1").innerHTML - get("total2").innerHTML);
+    };
+
+    function calTotal(a, textarea, resDis) {
+      let res = 0;
+      let temStr = "";
+      let temArr = a.split("\n");
+      if (a.indexOf("	") === -1) {
+        for (let i = 0; i < temArr.length; i++) {
+          let n = parseFloat(temArr[i]);
+          n = isNaN(n) ? 0 : n;
+          res += n;
+        }
+      } else {
+        for (let i = 0; i < temArr.length; i++) {
+          if (temArr[i].indexOf("	") > -1 && temArr[i] !== "	") {
+            let splitArr = temArr[i].split("	");
+            let name = splitArr[0];
+            let oldnum = splitArr[1].replace(" ", "");
+            let num = parseFloat(oldnum);
+            num = isNaN(num) ? 0 : num;
+            res += num;
+            temStr += name + "	" + oldnum + "\n";
+          }
+        }
+
+        textarea.value = temStr;
+      }
+
+      resDis.innerHTML = res;
+    }
+
+    function removeLastSpace(arr) {
+      if (arr[arr.length - 1] == "") {
+        arr.pop()
+      }
+    }
+
+    getDiffBtn.onclick = function () {
+      oWrite2.value = oWrite1.value = "";
+      arr11 = oNum1.value.split("\n");
+      arr22 = oNum2.value.split("\n");
+
+      for (var m = 0; m < arr11.length; m++) {
+        if (arr11[m] == "" || arr11[m] == " ") {
+          arr11.splice(m, 1);
+        }
+      }
+      for (var m = 0; m < arr22.length; m++) {
+        if (arr22[m] == "" || arr22[m] == " ") {
+          arr22.splice(m, 1);
+        }
+      }
+
+      var arr111 = unique(arr11);
+      var arr222 = unique(arr22);
+
+      for (var qe = 0; qe < arr111.length; qe++) {
+        var xx = 0;
+        var yy = 0;
+        for (var ee = 0; ee < arr11.length; ee++) {
+          if (arr111[qe] == arr11[ee]) {
+            xx++;
+          }
+        }
+
+        for (var rr = 0; rr < arr22.length; rr++) {
+          if (arr111[qe] == arr22[rr]) {
+            yy++;
+          }
+        }
+        if (xx > yy) {
+          let tem = xx - yy;
+          for (let i = 0; i < tem; i++) {
+            oWrite1.value += arr111[qe] + "\n";
+            console.log(arr111[qe]);
+          }
+        }
+        if (xx < yy) {
+          let tem = yy - xx;
+          for (let i = 0; i < tem; i++) {
+            oWrite2.value += arr111[qe] + "\n";
+          }
+        }
+      }
+      for (let i = 0; i < arr22.length; i++) {
+        if (!arr111.includes(arr22[i])) {
+          oWrite2.value += arr22[i] + "\n";
+        }
+      }
+    };
+
+    var resultDiv = get("result-inf");
+    getRepeatBtn.onclick = function () {
+      var oRe = /\n/g;
+      var originalData = oNum2.value.split(oRe);
+      var arrRepeat = getRepeat(originalData);
+      var newArr = unique(originalData)
+      oWrite1.value = "repeatData:\n\n" + arrRepeat.join("\n");
+      oWrite2.value = "Data after deduplication:\n\n" + newArr.join("\n");
+
+      resultDiv.innerHTML = `the length of original data: ${originalData.length}<br>the length of new data: ${newArr.length}`;
+    };
+    get("del-data").onclick = function () {
+      var oRe = /\n/g;
+      var originalData = oNum2.value.split(oRe);
+
+      removeLastSpace(originalData)
+      var arrDelData = oNum1.value.split(oRe);
+      removeLastSpace(arrDelData)
+      var newArr = [];
+      var deled = []
+      for (var i = 0; i < originalData.length; i++) {
+        if (
+          arrDelData.indexOf(originalData[i]) == -1
+        ) {
+          newArr.push(originalData[i]);
+        } else {
+          deled.push(originalData[i]);
+        }
+      }
+      oWrite1.value = "deled:\n\n" + deled.join("\n");
+      oWrite2.value = "newData:\n\n" + newArr.join("\n");
+      resultDiv.innerHTML = `the length of original data: ${originalData.length}<br>the length of new data: ${newArr.length}`;
+    };
+    oAdd.onclick = function () {
+      var oRe = /\n/g;
+      var originalData = oNum2.value.split(oRe);
+
+      var newArr = uniqueArr(originalData);
+      oWrite2.value = "";
+      for (let item of newArr) {
+        oWrite2.value += '"' + item.trim() + '",';
+      }
+    };
+
+    // arr  get repeat data
+    function getRepeat(target) {
+      var tem = {};
+      var newarr = [];
+
+      for (var k = 0; k < target.length; k++) {
+        if (!tem[target[k]]) {
+          tem[target[k]] = "abcd";
+        } else {
+          newarr.push(target[k]);
+        }
+      }
+
+      return newarr;
+    }
+    // arr  get unique data
+    function uniqueArr(target) {
+      var tem = {};
+      var newarr = [];
+
+      for (var k = 0; k < target.length; k++) {
+        if (!tem[target[k]]) {
+          tem[target[k]] = "abcd";
+          newarr.push(target[k]);
+        }
+      }
+      return newarr;
+    }
+
+    //sort
+
+    var reverseBtn = gClass("reverse-sort")[0];
+    var table2 = get("table2");
+    reverseBtn.onclick = function () {
+      var arrSort = [];
+      var arrOrign = [];
+      table2.tBodies[0].innerHTML = "";
+      arrSort = oNum2.value.split("\n");
+      removeLastSpace(arrSort)
+      for (var l = 0; l < arrSort.length; l++) {
+        arrOrign.push(arrSort[l].split("	"));
+      }
+
+      var aTr = document.createElement("tr");
+      for (var i = 0; i < arrOrign[0].length; i++) {
+        var aTd = document.createElement("td");
+        aTd.innerHTML = arrOrign[0][i];
+        aTr.appendChild(aTd);
+      }
+      table2.tBodies[0].appendChild(aTr);
+
+      for (var j = 1; j < arrOrign.length; j++) {
+        var aTr = document.createElement("tr");
+        for (var k = 0; k < arrOrign[0].length; k++) {
+          var aTd = document.createElement("td");
+          aTd.innerHTML = arrOrign[j][k];
+          aTr.appendChild(aTd);
+        }
+        table2.tBodies[0].insertBefore(aTr, table2.tBodies[0].children[0]);
+      }
+    };
+  </script>
+  <div class="server-div">
+    <div class="header">
+      <h5>Server</h5>
+    </div>
+    <hr />
+    <div class="quickLink">
+      <ul>
+        <li>
+          <div>
+            <a class="quick-link-a" href="https://www.eastmoney.com/" target="_blank">上证指数</a>
+
+            <span><button class="link-button">Link</button></span>
+            <input type="text" class="target-path" value="#hq-news-main > div:nth-child(2) > div.hq-news-con-b.first.on >
+            div.hq-news-data > div.hq-news-value.item_nowPrice">
+
+            <span class="quick-link-method">text</span>
+          </div>
+          <div class="link-result orange clearFix">......</div>
+        </li>
+        <li>
+          <div>
+            <a class="quick-link-a" href="http://fund.eastmoney.com/161725.html" target="_blank">招商中证</a>
+
+            <span><button class="link-button">Link</button></span>
+            <input type="text" class="target-path" value="#body > div:nth-child(11) > div > div > div.fundDetail-main >
+            div.fundInfoItem > div.dataOfFund > dl.dataItem02 >  dd.dataNums">
+
+            <span class="quick-link-method">text</span>
+          </div>
+          <div class="link-result orange clearFix">......</div>
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <div class="register-area">
+      <form id="serve_form" action="">
+        <div class="group">
+          <label for="serverUrl">url:</label>
+          <input class="form-control" type="text" name="serverUrl" />
+        </div>
+        <div class="group">
+          <label for="serverPath">path:</label>
+          <input class="form-control" type="text" name="serverPath" />
+        </div>
+        <div class="group">
+          <label for="method">method:</label>
+          <input class="form-control" type="text" name="method" />
+        </div>
+        <div class="group">
+          <button class="form-sub">submit</button>
+        </div>
+      </form>
+    </div>
+
+    <hr />
+    <div>
+      <div id="info" class="text-div"></div>
+    </div>
+  </div>
+</body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+
+<script>if (typeof module === 'object') { window.jQuery = window.$ = module.exports; };</script>
+
+<script>
+
+
+
+  var linkResultIndex = -1;
+  $(".link-button").each((i, ele) => {
+    ele.onclick = function () {
+      $(".form-control")[0].value =
+        $(".quick-link-a")[i].getAttribute("href");
+      $(".form-control")[1].value = $(".target-path")[i].value;
+      $(".form-control")[2].value = $(".quick-link-method")[i].innerText;
+      linkResultIndex = i;
+      $("#serve_form").submit();
+      linkResultIndex = -1
+    };
+  });
+  $("#serve_form").on("submit", function (e) {
+    let theIndex = linkResultIndex;
+    e.preventDefault();
+    let formData = $(this).serialize();
+
+    $.ajax({
+      url: "/serve",
+      type: "post",
+      data: formData,
+      dataType: "json",
+      success: function (data) {
+        let renderStr = ``;
+        for (let i = 0; i < data.length; i++) {
+          renderStr += `<div class="clearFix"><div class="order">${i + 1}.</div><div class="result">${data[i]}</div></div>`;
+        }
+        if (data.length == 0) {
+          renderStr += "return value is null";
+        }
+        if (data[0] && data[0]["code"] == "ERR_INVALID_URL") {
+          renderStr = `err:input:  '${data[0]["input"]}' ,code: '${data[0]["code"]}'`;
+        }
+        if (theIndex == -1) {
+          $("#info").html(renderStr);
+        } else {
+
+          $(".link-result").eq(theIndex).html(renderStr);
+
+        }
+      },
+    });
+  });
+  
+
+
+</script>
+
+</html>

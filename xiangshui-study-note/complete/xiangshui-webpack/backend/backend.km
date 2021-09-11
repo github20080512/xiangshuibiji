@@ -1,0 +1,153 @@
+{
+    "root": {
+        "data": {
+            "id": "cdnuh3xjids0",
+            "created": 1629412358877,
+            "text": "app.js"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cdnuho2tvq80",
+                    "created": 1629412402733,
+                    "text": "routes/users.js",
+                    "resource": [
+                        "userRouter"
+                    ]
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cdnum1b0tqw0",
+                            "created": 1629412744983,
+                            "text": "controllers/users.js",
+                            "resource": [
+                                "signup, list, remove, signin, signout, isAuth"
+                            ]
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdnumkqjdzs0",
+                                    "created": 1629412787280,
+                                    "text": "models/users.js",
+                                    "resource": [
+                                        "userModel"
+                                    ]
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdnunfnvn7s0",
+                                            "created": 1629412854600,
+                                            "text": "utils/db.js",
+                                            "resource": [
+                                                "Users"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdnumtosvyo0",
+                                    "created": 1629412806766,
+                                    "text": "utils/tools.js",
+                                    "resource": [
+                                        "hash, compare, sign, verify"
+                                    ]
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cdnum9uwvfk0",
+                            "created": 1629412763600,
+                            "text": "middlewares/auth.js",
+                            "resource": [
+                                "auth"
+                            ]
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdnuoq02jt40",
+                                    "created": 1629412955469,
+                                    "text": "utils/tools.js",
+                                    "resource": [
+                                        "verify"
+                                    ]
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cdnuljfgjyw0",
+                    "created": 1629412706069,
+                    "text": "routes/positions.js",
+                    "resource": [
+                        "positionRouter"
+                    ]
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cdnup8mhdfc0",
+                            "created": 1629412996006,
+                            "text": "controllers/positions.js",
+                            "resource": [
+                                "add, list, remove, listone, update"
+                            ]
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdnumkqjdzs0",
+                                    "created": 1629412787280,
+                                    "text": "models/positions.js",
+                                    "resource": [
+                                        "positionModel"
+                                    ]
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdnunfnvn7s0",
+                                            "created": 1629412854600,
+                                            "text": "utils/db.js",
+                                            "resource": [
+                                                "Users"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cdnuq4qufz40",
+                            "created": 1629413065927,
+                            "text": "middlewares/upload.js",
+                            "resource": [
+                                "uploadMiddleware"
+                            ]
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

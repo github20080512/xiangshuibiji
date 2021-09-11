@@ -1,0 +1,238 @@
+{
+    "root": {
+        "data": {
+            "id": "cdq8e23y8kg0",
+            "created": 1629654735271,
+            "text": "main.js"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cdq8fy9d82g0",
+                    "created": 1629654883620,
+                    "text": "vue",
+                    "resource": [
+                        "Vue"
+                    ],
+                    "layout_right_offset": {
+                        "x": -96,
+                        "y": 19
+                    }
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cdq8g38lm3s0",
+                    "created": 1629654894457,
+                    "text": "App.vue",
+                    "resource": [
+                        "app"
+                    ],
+                    "layout_right_offset": {
+                        "x": -82,
+                        "y": -1
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cdq8izuodyg0",
+                            "created": 1629655122177,
+                            "text": "views/Products.vue",
+                            "resource": [
+                                "Products",
+                                "组件"
+                            ]
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cdq8j8qk2mg0",
+                            "created": 1629655141519,
+                            "text": "views/Carts.vue",
+                            "resource": [
+                                "Carts",
+                                "组件"
+                            ]
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cdq8gv31fe80",
+                    "created": 1629654955071,
+                    "text": "store.index.js",
+                    "resource": [
+                        "store"
+                    ],
+                    "layout_right_offset": {
+                        "x": -96,
+                        "y": -32
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cdqce9kxsew0",
+                            "created": 1629666035975,
+                            "text": "store/modules/products.js"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdqcf0b36m00",
+                                    "created": 1629666094153,
+                                    "text": "state"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdqcj6nkzqw0",
+                                            "created": 1629666421426,
+                                            "text": "all"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdqcfim914g0",
+                                    "created": 1629666134010,
+                                    "text": "mutations"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdqcgsnn7eg0",
+                                            "created": 1629666234226,
+                                            "text": "setAll"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdqcgvzn0k80",
+                                            "created": 1629666241482,
+                                            "text": "setProductInventory"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdqcfm5n2ow0",
+                                    "created": 1629666141713,
+                                    "text": "actions"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdqcfyv6o540",
+                                            "created": 1629666169379,
+                                            "text": "loadData"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdqcgj0kz540",
+                                            "created": 1629666213241,
+                                            "text": "decrementInventory"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cdqce9kxsew0",
+                            "created": 1629666035975,
+                            "text": "store/modules/carts.js"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdqcjsem1ag0",
+                                    "created": 1629666468772,
+                                    "text": "state"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdqck10aglc0",
+                                            "created": 1629666487497,
+                                            "text": "items"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdqcjy8rslk0",
+                                    "created": 1629666481480,
+                                    "text": "getters"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdqck8equhc0",
+                                            "created": 1629666503609,
+                                            "text": "totalPrice"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdqcjul9jtk0",
+                                    "created": 1629666473528,
+                                    "text": "mutations"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdqckb51sgw0",
+                                            "created": 1629666509553,
+                                            "text": "setItems"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdqcjwr7igo0",
+                                    "created": 1629666478241,
+                                    "text": "actions"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdqckfean2g0",
+                                            "created": 1629666518819,
+                                            "text": "addToCart"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life</title>
+    <link
+      rel="stylesheet"
+      href="http://at.alicdn.com/t/font_1704615_52r2huqfesg.css"
+    />
+    <link rel="stylesheet" href="1.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <nav class="head">
+      <div class="logo">
+        <h1>
+          <a class="change-pages" href="javascript:;">Life & Time</a>
+        </h1>
+      </div>
+      <div class="head_nav">
+        <ul>
+          <li><a class="change-pages" href="javascript:;">TALK</a></li>
+          <li><a class="change-pages" href="javascript:;">TYPE</a></li>
+          <li><a class="change-pages" href="javascript:;">TIME</a></li>
+          <li><a class="change-pages" href="javascript:;">Tools</a></li>
+        </ul>
+      </div>
+      <div class="login">
+        <a href=""><i class="iconfont icon-weidenglutouxiang"></i></a>
+      </div>
+    </nav>
+    <div class="home_page page" style="display: block;">
+      <div class="slide_show clearfix">
+        <ul class="big_pic">
+          <li>
+            <img
+              src="https://www.chevrolet.com/content/dam/chevrolet/na/us/english/retail/march-2020/phase-3/homepage/01-images/chevy-cares-offer-masthead-xl-2500x1000.jpg?imwidth=1200"
+              alt=""
+            />
+          </li>
+          <li>
+            <img
+              src="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/bhp/hero/adaptive-hero/april/Jeep-BHP-April-Incentive-Lineup-Desktop.jpg.image.1440.jpg"
+              alt=""
+            />
+          </li>
+
+          <li>
+            <img
+              src="https://www.apple.com/v/macbook-pro-13/c/images/overview/display/display_screen__d6xv8l5wqtua_large.jpg"
+              alt=""
+            />
+          </li>
+          <li>
+            <img
+              src="https://www.icp.org/sites/default/files/styles/large_custom_user_wide_1x/public/M749_NIJ_WSJ_001-07_V3-2500_0.jpg?itok=UVFpCvQW&timestamp=1588350752"
+              style="margin-top: -150px;"
+              alt=""
+            />
+          </li>
+        </ul>
+        <button class="prew"></button>
+        <button class="next"></button>
+        <div class="bottom">
+          <ul>
+            <li><button class="circle_back"></button></li>
+            <li><button class="circle"></button></li>
+            <li><button class="circle"></button></li>
+            <li><button class="circle"></button></li>
+          </ul>
+          <div class="bottom_a">
+            <a href="" class="">Get details</a
+            ><i class="iconfont icon-changyongicon-"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="talk_ad clearfix">
+        <div class="img"></div>
+        <div class="contain clearfix">
+          <div class="word_ad">
+            <div class="words_ad"></div>
+          </div>
+          <div class="input_area">
+            <div class="input">
+              <input
+                class="talk_input talk_input_0"
+                type="text"
+                placeholder="Type your message"
+                onfocus="onChange()"
+                onBlur="loseFocus()"
+              />
+              <i class="iconfont icon-changyongicon- icon-changyongicon-0"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- make plan to do everything -->
+
+      <div class="section plan">
+        <div class="wrapper clearfix">
+          <div class="aside-left">
+            <h2 style="color: black;">
+              SCHEDULE
+            </h2>
+            <ul>
+              <li><a href="javascript:;" class="plan-today-but">Today</a></li>
+              <li><a href="javascript:;" class="plan-future-but">Future</a></li>
+            </ul>
+          </div>
+          <div class="main">
+            <div class="main-set-header clearfix">
+              <h2 style="float: left;">
+                PLAN
+              </h2>
+              <div class="set-area">
+                <a href="javascript:;" class="set"
+                  ><i class="iconfont icon-shezhi"></i
+                ></a>
+              </div>
+              <div class="func func-area">
+                <div class="func-wrapper">
+                  <div class="add">
+                    <i class="iconfont icon-tianjia show-plan-set"></i>
+                  </div>
+                  <div class="delete">
+                    <i class="iconfont icon-shanchu plan-open-delete"></i>
+                  </div>
+                  <div class="remind"><i class="iconfont icon-tixing"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="contain plan_contain">
+              <div class="iterm plan-set-area clearfix">
+                <span class="No">NEW</span>
+                <span class="time"
+                  ><input
+                    id="plan-day-type"
+                    class="mission_time"
+                    type="time"
+                    value="00:00"
+                  />
+
+                  <input
+                    id="plan-year-type"
+                    class="mission_time"
+                    type="date"
+                    value="2020-02-20"
+                    style="display: none;"
+                  />
+                </span>
+                <div class="content">
+                  <input
+                    class="mission_content"
+                    type="text"
+                    placeholder="please build a new mission"
+                  />
+                </div>
+                <div class="confirm">
+                  <i class="iconfont icon-wancheng1 add_new"></i>
+                  <i class="iconfont icon-weiwancheng hide_new"></i>
+                </div>
+              </div>
+              <div class="plan_new_area"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section sign">
+        <div class="wrapper clearfix">
+          <div class="aside-right">
+            <div class="main-set-header clearfix">
+              <h2>
+                Duration
+              </h2>
+
+              <div class="set-area">
+                <a href="javascript:;" class="set"
+                  ><i class="iconfont icon-shezhi"></i
+                ></a>
+              </div>
+              <div class="func func-area">
+                <div class="func-wrapper">
+                  <div class="add"><i class="iconfont icon-tianjia"></i></div>
+                  <div class="delete">
+                    <i class="iconfont icon-shanchu"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="viewDuration">
+              <ul class="dur-con-wrap"></ul>
+            </div>
+
+            <h2>
+              WORDS
+            </h2>
+            <div class="pic"></div>
+            <div class="word">
+              <p class="smallword"></p>
+            </div>
+            <div class="grey" style="display: none;">
+              <div class="info">
+                <div class="close" onclick="infoClose()">X</div>
+                <div class="infoInner">Were you tired？</div>
+                <div class="time-selecte"></div>
+                <div class="button_area">
+                  <button class="button left_button">Yes</button
+                  ><button class="button right_button">No</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="duration-add-pro">
+              <div class="info">
+                <div class="close" onclick="infoClose()">X</div>
+                <div class="infoInner">
+                  <span>Project</span><input class="dur-input" />
+                </div>
+                <div class="time-selecte">
+                  <span style="margin-left: 27px; margin-right: 25px;"
+                    >Date</span
+                  >
+                  <input class="dur-date-inp" type="date" value="2020-02-20" />
+                </div>
+                <div class="button_area">
+                  <button class="button left_button dur-inp-com">Yes</button
+                  ><button class="button right_button" onclick="infoClose()">
+                    No
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="aside-left">
+            <h2 style="color: black;">
+              BEHAVIOR
+            </h2>
+          </div>
+          <div class="main">
+            <div class="main-set-header clearfix">
+              <h2>
+                FORBID
+              </h2>
+              <!-- forbid set-->
+              <div class="set-area">
+                <a href="javascript:;" class="set"
+                  ><i class="iconfont icon-shezhi"></i
+                ></a>
+              </div>
+              <div class="func func-area">
+                <div class="func-wrapper">
+                  <div class="add">
+                    <i class="iconfont icon-tianjia add-forbid"></i>
+                  </div>
+                  <div class="delete">
+                    <i class="iconfont icon-shanchu del-forbid"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="control">
+              <div class="iterm left">
+                <ul class="ulLeft"></ul>
+                <form style="float: right; margin-top: 15px;">
+                  <textarea
+                    name="message"
+                    class="messages"
+                    cols="60"
+                    rows="20"
+                  ></textarea>
+                </form>
+                <button type="submit" class="savebut">save</button>
+              </div>
+              <div class="iterm right">
+                <ul class="ulRight"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="talk_page page" style="display: none;">
+      <div class="talk_menu">
+        <a href="" class="menu"><i class="iconfont icon-caidan"></i></a>
+        <a href="" class="set"><i class="iconfont icon-shezhi"></i></a>
+      </div>
+      <div class="section talk">
+        <div class="wrapper clearfix">
+          <div class="main">
+            <div class="talk_txt clearfix">
+              <div class="iterm">
+                <div class="line"></div>
+                <div class="box">Hello</div>
+              </div>
+            </div>
+            <div class="input_area">
+              <div class="input">
+                <input
+                  class="talk_input talk_input_1"
+                  type="text"
+                  placeholder="Type your message"
+                  onfocus="onChange()"
+                  onBlur="loseFocus()"
+                />
+                <i
+                  class="iconfont icon-changyongicon- icon-changyongicon-1"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- type_page-->
+    <div class="type_page page" style="display: none;">
+      <div class="type_menu">
+        <a href="" class="menu"><i class="iconfont icon-caidan"></i></a>
+        <a href="" class="set"><i class="iconfont icon-shezhi"></i></a>
+        <div class="rightS">
+          <ul id="songname"></ul>
+        </div>
+      </div>
+      <div class="section type">
+        <div class="wrapper clearfix">
+          <div class="main type-main">
+            <div class="lrc-warpper">
+              <div class="up-cover"></div>
+              <div class="lrc-input">
+                <input class="lrc-type" type="text" />
+              </div>
+              <div class="down-cover"></div>
+              <ul class="lrc-list"></ul>
+            </div>
+            <audio id="mp3" controls>
+              <source src="" type="audio/mpeg" style="float: right;" />
+            </audio>
+            <div class="hide-show">Hide</div>
+            <div class="dark-light">Dark</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- time-line_page-->
+    <div
+      class="page"
+      style="width: 100%; height: 100%; background: red; display: none;"
+    >
+      <div class="time-line-wrapper">
+        <div class="line_con">
+          <ul class="time_line"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="page tool-page">
+      <div class="chooseTime set-clock">
+        <div class="clock-header">
+          <h3>SET CLOCK</h3>
+          <a href="javascript:;" class="set-clock-close">X</a>
+        </div>
+        <div class="form clearfix">
+          <div class="set-group">
+            <label for="timeHour">HOUR</label>
+            <div class="setArea">
+              <span class="span-btn">
+                <button class="btn less">&lt;</button>
+              </span>
+              <select class="form-control select1" name="timeHour">
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option> </select
+              ><span class="span-btn">
+                <button class="btn choose-more">&gt;</button>
+              </span>
+            </div>
+          </div>
+          <div class="set-group">
+            <label for="timeMinute">MINUTE</label>
+            <div class="setArea">
+              <span class="span-btn">
+                <button class="btn less">&lt;</button>
+              </span>
+              <select class="form-control select1" name="timeMinute" id="">
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+              </select>
+              <span class="span-btn">
+                <button class="btn choose-more">&gt;</button>
+              </span>
+            </div>
+          </div>
+          <div class="input-group">
+            <span>Title</span>
+            <input class="form-control input-title" type="text" value="clock" />
+          </div>
+
+          <div class="input-group">
+            <span>Quick</span>
+            <div>
+              <button class="btn-func quick-set-clock">04:00</button>
+              <button class="btn-func quick-set-clock">05:00</button>
+              <button class="btn-func quick-set-clock">06:00</button>
+              <button class="btn-func quick-set-clock">11:00</button>
+              <button class="btn-func quick-set-clock">12:00</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-bottom">
+          <div class="wrap">
+            <button class="btn-func btn-func-left">Cancel</button>
+
+            <button class="btn-func btn-func-right">Start</button>
+            <button class="btn-func btn-cdown-right">Count</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section clock">
+        <div class="wraper">
+          <div class="time sur-time">
+            15:41:55
+          </div>
+          <div class="date sur-date">
+            2020.6.9
+          </div>
+          <div class="but">
+            <div class="wrap">
+              <button class="btn-func btn-newclock">New clock</button>
+              <button class="btn-func btn-countdown">Countdown</button>
+              <button class="btn-func btn-timekeeping">Timekeeping</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chooseTime set-timekeeping">
+          <div class="clock-header">
+            <h3>Timekeeping</h3>
+            <a class="btn-close-timekeep" href="javascript:;">X</a>
+          </div>
+          <div class="form clearfix">
+            <div class="input-group">
+              <span>Title</span>
+              <input
+                class="form-control input-title input-title-timekeep"
+                type="text"
+                value="set-timekeeping"
+              />
+            </div>
+          </div>
+          <div class="form-bottom">
+            <div class="wrap">
+              <button class="btn-func btn-func-left btn-close-timekeep">
+                Cancel
+              </button>
+
+              <button class="btn-func btn-func-right btn-start-timekeep">
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- clock-excute -->
+
+      <div class="section clock-excute clearfix">
+        <div class="wraper clock-excute-wraper"></div>
+      </div>
+      <div class="section cdown-excute clearfix">
+        <div class="wraper cdown-excute-wraper"></div>
+      </div>
+
+      <div class="section timekeep-excute clearfix">
+        <div class="wraper timekeep-excute-wraper"></div>
+      </div>
+
+      <div class="calculator" tabindex="1">
+        <div class="calcu-header">
+          <h2>calculate</h2>
+        </div>
+        <div class="calcu-screen">
+          <input type="text" id="result" class="screen" value="0" />
+        </div>
+        <div class="calcu-btn">
+          <ul>
+            <li onclick="command(7)">7</li>
+            <li onclick="command(8)">8</li>
+            <li onclick="command(9)">9</li>
+            <li class="tool" onclick="del()">←</li>
+            <li class="tool" onclick="clearzero()">C</li>
+            <li onclick="command(4)">4</li>
+            <li onclick="command(5)">5</li>
+            <li onclick="command(6)">6</li>
+            <li class="tool" onclick="op('*')">×</li>
+            <li class="tool" onclick="op('/')">÷</li>
+            <li onclick="command(1)">1</li>
+            <li onclick="command(2)">2</li>
+            <li onclick="command(3)">3</li>
+            <li class="tool" onclick="op('+')">+</li>
+            <li class="tool" onclick="op('-')">-</li>
+            <li onclick="command(0)">0</li>
+            <li onclick="dzero()">00</li>
+            <li onclick="dot()">.</li>
+            <li class="tool" onclick="getPercent('%')">%</li>
+            <li class="tool D06A15" onclick="equal()">=</li>
+          </ul>
+        </div>
+      </div>
+      <script>
+        var resultDom = document.getElementById("result");
+        var oCalculator = document.getElementsByClassName("calculator")[0];
+        var dotFlag = true;
+        var opFlag = true;
+        var equFlag = true;
+
+        function myIndex(value) {
+          var add = value.lastIndexOf("+");
+          var sub = value.lastIndexOf("-");
+          var mul = value.lastIndexOf("*");
+          var divide = value.lastIndexOf("/");
+          return Math.max(add, sub, mul, divide);
+        }
+
+        function command(num) {
+          if (!equFlag) {
+            resultDom.value = "0";
+            equFlag = true;
+            dotFlag = true;
+          }
+
+          var str = resultDom.value;
+          var lastStr = str.substring(myIndex(str) + 1, str.length);
+          var beforeStr = str.substring(0, myIndex(str) + 1);
+          lastStr = lastStr == "0" ? "" : lastStr;
+          resultDom.value = beforeStr + lastStr + num;
+        }
+
+        //+ - * /
+        function op(op) {
+          var strs = resultDom.value;
+          spstr = strs.split("");
+          strs = spstr[spstr.length - 1];
+
+          if (strs == "+" || strs == "-" || strs == "*" || strs == "/") {
+            del();
+            resultDom.value += op;
+            dotFlag = true;
+          } else {
+            resultDom.value += op;
+            dotFlag = true;
+
+            equFlag = true;
+          }
+        }
+
+        //小数点
+        function dot() {
+          if (dotFlag) {
+            //拿到文本框的值
+            var num = resultDom.value;
+            num = num.split("");
+            var strs = num[num.length - 1];
+            if (strs == "+" || strs == "-" || strs == "*" || strs == "/") {
+              resultDom.value = resultDom.value + "0.";
+              dotFlag = false;
+            } else {
+              resultDom.value = resultDom.value + ".";
+              dotFlag = false;
+            }
+          }
+        }
+        //运算
+        function equal() {
+          var num = resultDom.value;
+          resultDom.value = eval(num);
+          var r = resultDom.value;
+          dotFlag = r.indexOf(".") == -1 ? true : false;
+          opFlag = true;
+          equFlag = false;
+        }
+
+        function dzero() {
+          var num = resultDom.value; //获取文本框的值
+          if (num == "0") {
+            return; //如果等返回000
+          } else if (/[\+|\-|\*|\/|\%]$/.test(num)) {
+            return;
+          }
+          var str = resultDom.value;
+          resultDom.value = str + "00";
+        }
+
+        //清空
+        function clearzero() {
+          resultDom.value = "0";
+          opFlag = true;
+          dotFlag = true;
+        }
+
+        //后退
+        function del() {
+          var val = resultDom.value;
+          if (!val) {
+            return;
+          }
+          var str = val.substring(0, val.length - 1);
+          resultDom.value = str || 0;
+          var value = resultDom.value;
+          var lastStr = value.substring(myIndex(value) + 1, value.length);
+          dotFlag = lastStr.indexOf(".") != -1 ? false : true;
+        }
+
+        //百分号
+        function getPercent(num) {
+          var val = resultDom.value;
+          var lastStr = val.substring(myIndex(val) + 1, val.length);
+          var beforeStr = val.substring(0, myIndex(val) + 1);
+          var percent = lastStr / 100;
+          if (percent.toString().indexOf(".") != -1) {
+            dotFlag = false;
+          }
+          resultDom.value = beforeStr + percent;
+        }
+        var oTrue = true;
+        resultDom.onfocus = function () {
+          oTrue = false;
+          if (this.value == "0") {
+            this.value = "";
+          }
+          resultDom.onkeydown = function (ev) {
+            var oEvent = ev || event;
+            var oCode = oEvent.keyCode;
+            if (oCode == 13) {
+              equal();
+            }
+          };
+        };
+        resultDom.onblur = function () {
+          oTrue = true;
+          if (this.value == "") {
+            this.value = "0";
+          }
+        };
+        oCalculator.onkeydown = function (ev) {
+          var oEvent = ev || event;
+          var oCode = oEvent.keyCode;
+          if (oTrue) {
+            if (oCode > 95 && oCode < 106) {
+              command(oEvent.key);
+            } else if (
+              oCode == 106 ||
+              oCode == 107 ||
+              oCode == 109 ||
+              oCode == 111
+            ) {
+              op(oEvent.key);
+            } else if (oCode == 13) {
+              equal();
+            } else if (oCode == 110) {
+              dot();
+            } else if (oCode == 8) {
+              del();
+            } else if (oCode == 27) {
+              clearzero();
+            } else if (oCode == 57 && oEvent.shiftKey) {
+              resultDom.value =
+                resultDom.value == "0"
+                  ? oEvent.key
+                  : resultDom.value + oEvent.key;
+            } else if (oCode == 48 && oEvent.shiftKey) {
+              resultDom.value =
+                resultDom.value.indexOf("(") == -1
+                  ? resultDom.value
+                  : resultDom.value + oEvent.key;
+            }
+          }
+        };
+        // bug 9*023.3  ==> laststr==0+0-9  ==>  9
+      </script>
+    </div>
+
+    <script src="2.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

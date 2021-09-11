@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Diary</title>
+    <style>
+        body,
+        p {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .left {
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        body {
+            background-color: #eff4f7;
+        }
+        
+        .header {
+            width: 100%;
+            height: 50px;
+            background: #222;
+        }
+        
+        .container {
+            width: 992px;
+            margin: 0 auto;
+        }
+        
+        .footer .container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .content .container,
+        .footer .container {
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        .header a {
+            color: #999;
+            padding: 15px;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 20px;
+        }
+        
+        .header a:hover {
+            color: #fff;
+        }
+        
+        .img-wrapper {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            overflow: hidden;
+            margin-top: -6px;
+            vertical-align: middle;
+        }
+        
+        .img-wrapper img {
+            width: 100%;
+        }
+        
+        .user {
+            display: inline-block;
+        }
+        
+        .user span {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        label {
+            display: block;
+            padding: 15px 0;
+        }
+        
+        textarea {
+            width: 100%;
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+        
+        .save-btn {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="links">
+                <div class="left">
+                    <a href="/index">My diary</a>
+                    <a href="/pay">Pay</a>
+                </div>
+                <div class="right">
+                    <div class="user">
+                        <div class="img-wrapper">
+                            <img src="/img/beer.jpg" alt="" />
+                        </div>
+                        <span>{{user}}</span>
+                    </div>
+                    <a href="/logout">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <form id="diary_form" action="">
+                <div class="date-choose-div">
+                    <label for="date">Choose a time for diary</label>
+                    <input id="date-choose" type="date" value="" name="date" />
+                </div>
+                <div class="wirte-area">
+                    <textarea name="article" id="diary-content" cols="30" rows="30"></textarea>
+                </div>
+                <div class="save">
+                    <button type="submit" class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">© 2015 - 2021 MyDiary</div>
+    </div>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script>
+        let mydate = new Date();
+        let year = mydate.getFullYear();
+        let month = mydate.getMonth() + 1;
+        month = month < 10 ? "0" + month : month;
+        let day = mydate.getDate();
+        day = day < 10 ? "0" + day : day;
+        let todayStr = year + "-" + month + "-" + day;
+
+        let diaryArr = [];
+        let editOrWrite = "write";
+
+        $.ajax({
+            url: "/getDiary",
+            type: "post",
+            data: "",
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+                diaryArr = data;
+                getDiaryContent(todayStr);
+            },
+        });
+
+        function getDiaryContent(str) {
+            editOrWrite = "write";
+            for (let i = 0; i < diaryArr.length; i++) {
+                if (diaryArr[i].date == str) {
+                    editOrWrite = "edit";
+                    $("#diary-content")[0].value = diaryArr[i].article;
+                    break;
+                }
+            }
+        }
+
+        $("#date-choose")[0].value = todayStr;
+        $("#date-choose").on("change", function() {
+            $("#diary-content")[0].value = "";
+            getDiaryContent(this.value);
+        });
+        $("#diary_form").on("submit", function(e) {
+            e.preventDefault();
+            let formData = $(this).serialize();
+            console.log(formData);
+            if (editOrWrite == "write") {
+                $.ajax({
+                    url: "/writeDiary",
+                    type: "post",
+                    data: formData,
+                    dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                        if (data.err_code === 0) {
+                            alert("serve err");
+                        } else {
+                            alert(" success");
+                            window.location.href = "/index";
+                        }
+                    },
+                });
+            } else {
+                $.ajax({
+                    url: "/edit",
+                    type: "post",
+                    data: formData,
+                    dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                        if (data.err_code === 0) {
+                            alert("serve err");
+                        } else {
+                            alert("save success");
+                            window.location.href = "/index";
+                        }
+                    },
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

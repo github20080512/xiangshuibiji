@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      //switch(n){case:n break;case:n break;default}
+      //for(var i=0;i<5;i++){if(i==2){break}console.log(i)}
+      //for(var i=0;i<5;i++){if(i==2){continue}console.log(i)}
+      //"" 0 false;非零数字 非空字符串 true;
+
+      //tools
+
+      // function getStyle(obj, attr) { if (obj.currentStyle) { return obj.currentStyle[attr]; } else { return getComputedStyle(obj, false)[attr]; } }
+      //tools
+      //changeStyle
+      //function changeStyle(name,value) { var c1o=document.getElementById("div1"); c1o.style[name]=value; }
+      //选项卡
+      // window.onload=function myFunction() { var oDiv=document.getElementById("div1"); var aBtn=oDiv.getElementsByTagName("input"); var aDiv=oDiv.getElementsByTagName("div"); for(i=0;i<aBtn.length;i++) {  aBtn[i].qw=i; aBtn[i].onclick=function() {     for(var i=0;i<aBtn.length;i++) {aBtn[i].className=""; aDiv[i].style.display="none"; } this.className="active"; aDiv[this.qw].style.display="block"; } } }
+      //全选 反选 全不选
+      //window.onload = function () { var oDiv = document.getElementById("div1"); var aChx = oDiv.getElementsByTagName("input"); var aBtn1 = document.getElementById("btn1"); var aBtn2 = document.getElementById("btn2"); var aBtn3 = document.getElementById("btn3"); aBtn1.onclick = function () { for (var i = 0; i < aChx.length; i++) { aChx[i].checked = true; } }; aBtn2.onclick = function () { for (var i = 0; i < aChx.length; i++) { aChx[i].checked = false; } }; aBtn3.onclick = function () { for (var i = 0; i < aChx.length; i++) if (aChx[i].checked == true) { aChx[i].checked = false; } else { aChx[i].checked = true; } }; };
+      //appendChild insertBefore removeChild
+      //var oTxtmod1 = document.getElementById("textmod1"); var oBtnmod1 = document.getElementById("btnmod1"); var oUl = document.getElementById("ul1"); oBtnmod1.onclick = function () { var oLi = document.createElement("li"); var aLi = oUl.getElementsByTagName("li"); oLi.innerHTML = oTxtmod1.value; // oUl.appendChild(oLi); oUl.insertBefore(oLi, aLi[0]); }; window.onload = function () { var aA = document.getElementsByTagName("a"); var oUl = document.getElementById("ul2"); for (var i = 0; i < aA.length; i++) { aA[i].onclick = function () { oUl.removeChild(this.parentNode); }; } };
+      //延时提示框
+      // window.onload=function(){ var oDiv1=document.getElementById("div1"); var oDiv2=document.getElementById("div2"); var timer=null; oDiv2.onmouseover =oDiv1.onmouseover=function(){ clearTimeout(timer); oDiv2.style.display="block"; } oDiv2.onmouseout =  oDiv1.onmouseout=function(){ timer=setTimeout(function(){ oDiv2.style.display="none"; },500); } }
+      //多物体运动框架升级
+
+      // window.onload = function () { var oDiv1 = document.getElementById("div1"); var oDiv2 = document.getElementById("div2"); oDiv1.timer = null; oDiv1.onmouseover = function () { startMove(this, "width", 300); }; oDiv1.onmouseout = function () { startMove(this, "width", 50); }; var oBtn = document.getElementById("btn1"); oBtn.onclick = function () { startMove(oDiv2, "left", 450); }; var oDiv3 = document.getElementById("div3"); oDiv3.onmouseover = function () { startMove(this, "opacity", 100); }; oDiv3.onmouseout = function () { startMove(this, "opacity", 30); }; }; function getStyle(obj, attr) { if (obj.currentStyle) { return obj.currentStyle[attr]; } else { return getComputedStyle(obj, false)[attr]; } } function startMove(obj, attr, iTarget) { clearInterval(obj.timer); obj.timer = setInterval(function () { var cur = 0; if (attr == "opacity") { cur = Math.round(parseFloat(getStyle(obj, attr)) * 100); } //实际上，Math.round()方法准确说是“四舍六入”，对0.5要进行判断对待。 //Math.round()的原理是对传入的参数+0.5之后，再向下取整得到的数就是返回的结果。这里的向下取整是说取比它小的第一个整数或者和它相等的整数。 else { cur = parseInt(getStyle(obj, attr)); } var speed = (iTarget - cur) / 10; speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); if (cur == iTarget) { clearInterval(obj.timer); } else { if (attr == "opacity") { obj.style.opacity = (cur + speed) / 100; } else { obj.style[attr] = cur + speed + "px"; } } }, 30); }
+
+      //ul轮播图
+      // window.onload = function () { var oDiv1 = document.getElementById("div1"); var oUl1 = document.getElementById("ul1"); var aLi = document.getElementsByTagName("li"); var timer = null; var speed = 2; oUl1.innerHTML = oUl1.innerHTML + oUl1.innerHTML; oUl1.style.width = aLi[1].offsetWidth * aLi.length + "px"; function move() { if (oUl1.offsetLeft < -oUl1.offsetWidth / 2) { oUl1.style.left = "0"; } if (oUl1.offsetLeft > 0) { oUl1.style.left = -oUl1.offsetWidth / 2 + "px"; } oUl1.style.left = oUl1.offsetLeft + speed + "px"; } timer = setInterval(move, 30); oDiv1.onmouseover = function () { clearInterval(timer); }; oDiv1.onmouseout = function () { timer = setInterval(move, 30); }; };
+
+      //闭包累加器
+      //function add() { var num = 0; function a() { console.log(++num); } return a; } var myAdd = add(); myAdd();
+      //这个方式也可以return里面的函数
+      //var demo; function test() { var abc = 100; function a() { console.log(abc); } demo = a; } test(); demo();
+      // doubt????
+      //function test() { var arr = []; for (var i = 0; i < 10; i++) { (function (j) { arr[j] = function () { document.write(j + " "); }; })(i); } return arr; } var myArr = new test(); for (var x = 0; x < 10; x++) { myArr[x](); }
+
+      // function gIdF(j) { return document.getElementById(j); } gIdF( "header" ).innerHTML += `<div id="reMeSi" style="background:white; color: #9dff00; width: 30px; height: 30px; border-radius:50%;font-size: 14px; position: absolute; top: 50%; left: 50%; text-align: center; line-height: 50px; " > <div style="margin-left:-1530px"> <button class="signInButL test" style=" width: 10px; height:10px; border-radius: 50%; background: blue; border: none; outline: none;padding:0;"></button> <button class="signInButL test" style=" width: 10px; height:10px; border-radius: 50%; background: white; border: none; outline: none;padding:0;"></button> <button class="signInButL test" style=" width: 10px; height:10px; border-radius: 50%; background: yellow; border: none; outline: none;padding:0;"></button> <span id="sloWord" style="display:inline-block;"></span> <input id="unUsefullTh" style="width: 10px; border: none; outline: none;background:none" /></div></div> `; var oJudge = true; var oldColor = ""; var sloganW = ["小1-2000", "中501-2000", "大501-99991"]; var signInButL = document.getElementsByClassName("signInButL"); for (var Ii = 0; Ii < signInButL.length; Ii++) { signInButL[Ii].oldColor = signInButL[Ii].style.background; signInButL[Ii].index = Ii; signInButL[Ii].onclick = function () { var aSignInButL = document.getElementsByClassName("test"); if (aSignInButL.length > 1) { this.style.display = "none"; this.className = "signInButL"; } else { gIdF("sloWord").innerHTML = sloganW[this.index]; if (oJudge) { gIdF("reMeSi").style.background = "red"; oJudge = false; this.style.background = "red"; gIdF("unUsefullTh").focus(); if (this.index == 0) { alert("Error:Little"); } if (this.index == 2) { alert("Error:Big"); } } else { this.style.background = this.oldColor; gIdF("reMeSi").style.background = this.oldColor; oJudge = true; } } }; }
+
+      //hasOwnProperty
+      // var obj = { name: "123", age: 12, height: 100, _proto_: { lastName: "deng" }, }; for (var prop in obj) { if (obj.hasOwnProperty(prop)) { console.log(obj[prop]); } }
+      //prototype inherit
+      //Father.prototype.lastName = "deng"; function Father() {} function Son() {} function inherit(Target, Origin) { Target.prototype = Origin.prototype; } inherit(Son, Father); var son = new Son();
+
+      //事件冒泡
+      // var div = document.getElementById("div"); document.getElementById("but").onclick = function (e) { div.style.display = "block"; var e = e || event; e.cancelBubble = true; console.log("click but"); }; document.onclick = function () { console.log("click document"); };
+
+      //div 跟随鼠标移动
+      // var div = document.getElementById("div"); document.onmousemove = function (ev) { var oEvent = ev || event; var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; div.style.left = oEvent.clientX + "px"; div.style.top = oEvent.clientY + scrollTop + "px"; console.log(oEvent.clientY); };
+
+      //一串div跟鼠标移动
+      //  document.onmousemove = function (ev) { var aDiv = document.getElementsByTagName("div"); var oEvent = ev || event; var x = oEvent.clientX; var y = oEvent.clientY; for (var i = aDiv.length - 1; i > 0; i--) { aDiv[i].style.left = aDiv[i - 1].offsetLeft + "px"; aDiv[i].style.top = aDiv[i - 1].offsetTop + "px"; } aDiv[0].style.left = x + "px"; aDiv[0].style.top = y + "px"; };
+
+      //onkeydown
+      // oTxt1.onkeydown = function (ev) { var oEvent = ev || event; if (oEvent.keyCode == 13 && oEvent.ctrlKey) { } };
+
+      //鼠标点击div移动
+      // var div1 = document.getElementById("div1"); var disX = 0; var disY = 0; div1.onmousedown = function (ev) { var oEvent = ev || event; disX = oEvent.clientX - div1.offsetLeft; disY = oEvent.clientY - div1.offsetTop; document.onmousemove = function (ev) { var oEvent = ev || event; div1.style.left = oEvent.clientX - disX + "px"; div1.style.top = oEvent.clientY - disY + "px"; }; document.onmouseup = function () { document.onmousemove = null; document.onmouseup = null; }; };
+
+      //鼠标右击div
+      // var div1 = document.getElementById("div1"); document.oncontextmenu = function (ev) { var oEvent = ev || event; div1.style.display = "block"; div1.style.left = oEvent.clientX + "px"; div1.style.top = oEvent.clientY + "px"; return false; }; document.onclick = function () { div1.style.display = "none"; };
+
+      //
+      //ajax
+      //
+      // function Theobj2str(data) { data = data || {}; var res = []; for (var key in data) { res.push( encodeURIComponent(key) + "=" + encodeURIComponent(data[key]) ); } return res.join("&"); } function Theajax(option) { let str = Theobj2str(option.data); let xmlhttp = new XMLHttpRequest(); let timer; if (option.type.toLowerCase() === "get") { xmlhttp.open(option.type, option.url + "?" + str, true); xmlhttp.send(); } else { xmlhttp.open(option.type, option.url, true); xmlhttp.setRequestHeader( "Content-type", "application/x-www-form-urlencoded" ); xmlhttp.send(str); } xmlhttp.onreadystatechange = function () { if (xmlhttp.readyState === 4) { clearInterval(timer); if ( (xmlhttp.status >= 200 && xmlhttp.status < 300) || xmlhttp.status === 304 ) { option.success(xmlhttp); } else { option.error(xmlhttp); } } }; if (option.timeout) { timer = setInterval(function () { console.log("中断请求"); xmlhttp.abort(); clearInterval(timer); }, option.timeout); } } let ThePost = { type: "get", url: "http://******/data", data: { type: "pop", page: 1 }, success: function (data) { console.log("success"); console.log(data); console.log(eval("(" + data.responseText + ")")); }, error: function (data) { console.log("fail"); console.log(data); }, timeout: 5000, }; Theajax(ThePost);
+     
+      //
+      //bilibili  某峰js 面试题
+      //1.
+      function Foo() {
+        Foo.a = function () {
+          console.log(1);
+        };
+        this.a = function () {
+          console.log(2);
+        };
+      }
+      //把Foo 当做类，在原型上设置公有的属性  =>实例.a()
+      Foo.prototype.a = function () {
+        console.log(3);
+      };
+      //把Foo 当做普通对象设置私有的属性方法
+      Foo.a = function () {
+        console.log(4);
+      };
+      Foo.a();
+      var obj = new Foo();
+      obj.a(); //私有属性有a
+      Foo.a();
+
+      //call apply
+      function A() {
+        this.abc = 111;
+      }
+      A.prototype.show = function () {
+        alert(this.abc);
+      };
+      function B() {
+        A.call(this);
+      }
+      for (var i in A.prototype) {
+        B.prototype[i] = A.prototype[i];
+        console.log(i);
+      }
+      var objB = new B();
+      var objA = new A();
+      objB.show();
+      objA.show();
+
+      //面试题 call apply 的区别，哪个性能好？
+      function abc(x, y, z) {
+        this.a = x;
+        this.b = y;
+        this.c = z;
+        console.log(this);
+      }
+      var obj = {};
+      abc.call(obj, 1, 2, 3);
+      abc.apply(obj, [11, 22, 33]);
+
+      //参数三个以上，call 比 apply 性能优越
+    </script>
+  </body>
+</html>

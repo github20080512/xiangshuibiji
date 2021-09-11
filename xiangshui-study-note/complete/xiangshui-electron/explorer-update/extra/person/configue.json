@@ -1,0 +1,135 @@
+{
+    "pa": [
+        {
+            "name": "https://www.eastmoney.com/",
+            "content": "#hq-news-main > div:nth-child(2) > div.hq-news-con-b.first.on >div.hq-news-data > div.hq-news-value.item_nowPrice",
+            "shortcut": "fund<3000",
+            "mode": "pa"
+        }
+      
+    ],
+    "url": [
+        {
+            "name": "myServer",
+            "content": "http://localhost:56565/server",
+            "shortcut": "alt+4",
+            "mode": "url"
+        },
+        {
+            "name": "translate",
+            "content": "https://translate.google.cn/",
+            "shortcut": "alt+3",
+            "mode": "url"
+        },
+    
+        {
+            "name": "timer",
+            "content": "http://localhost:56565",
+            "shortcut": "alt+2",
+            "mode": "url"
+        }
+    ],
+    "file": [
+        {
+            "name": "diary",
+            "content": "reset path\\win-unpacked\\resources\\person\\localHtml\\index.html",
+            "shortcut": "alt+0",
+            "mode": "file"
+        },
+        {
+            "name": "search",
+            "content": "reset path\\win-unpacked\\resources\\person\\search\\index.html",
+            "shortcut": "alt+1",
+            "mode": "file"
+        }
+    ],
+    "cmd": [
+        {
+            "name": "desktop",
+            "content": "explorer C:\\Users\\Administrator\\Desktop",
+            "shortcut": "ctrl+shift+7",
+            "mode": "cmd"
+        }
+    ],
+    "quickCopy": [
+        {
+            "name": "time",
+            "content": "b<-O9K->bZ:<-O9K->4:bbLb<-O9K->g<-O9K->}g<-O9K-><-O9K->",
+            "shortcut": "shift+c",
+            "mode": "quickCopy"
+        }
+    ],
+    "quickDefault": [
+        {
+            "name": "set zoom 0",
+            "content": "",
+            "shortcut": "ctrl+alt+0",
+            "mode": ""
+        },
+        {
+            "name": "top true",
+            "content": "",
+            "shortcut": "ctrl+alt+1",
+            "mode": ""
+        },
+        {
+            "name": "top false",
+            "content": "",
+            "shortcut": "ctrl+alt+2",
+            "mode": ""
+        },
+        {
+            "name": "close app",
+            "content": "",
+            "shortcut": "alt+w",
+            "mode": ""
+        },
+        {
+            "name": "hide",
+            "content": "",
+            "shortcut": "alt+q",
+            "mode": ""
+        }
+    ],
+    "settings": {
+        "AutoClose": {
+            "isAutoClose": false,
+            "closeTime": "20:00:00"
+        },
+        "theme": "58df3857ad298fe0b01dddeb38933dbd",
+        "other": {
+            "785965": "c81b69e43a8ac6db897baddddddebfe7"
+        },
+        "httpPort": 56565,
+        "ImPath": "reset path",
+        "maininterface": {
+            "width": 540,
+            "height": 280
+        },
+        "subinterface": {
+            "width": 570,
+            "height": 400
+        },
+        "read":"!all; !next; *5   behavior; +5   bill; -5   bill; 5+6  calculate; shift+enter remark; ctrl+t todo; ctrl+e describe;"
+    },
+    "like": [
+        {
+            "url": "/th?id=OHR.HowgillFells_ZH-CN1134328886_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp",
+            "copyright": "约克郡谷地国家公园里的山丘，英格兰 (© davidnmoorhouse/iStock/Getty Images Plus)"
+        }
+    ],
+    "todo": [
+        {
+            "event": "clock",
+            "everyday": false,
+            "date": "2021-09-05",
+            "time": "10:06",
+            "remind": true,
+            "writetime": 1630807617389,
+            "fulltime": "2021-09-05 10:06:00"
+        }
+    ],
+    "myWords": {
+        "next": "you  never know what  will happen next second. "
+    }
+}

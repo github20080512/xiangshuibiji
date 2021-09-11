@@ -1,0 +1,733 @@
+{
+    "root": {
+        "data": {
+            "id": "cdmxgbr2bog0",
+            "created": 1629319200909,
+            "text": "src/app.js",
+            "resource": [],
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cdmxgwnylzs0",
+                    "created": 1629319246434,
+                    "text": "routes/index.js",
+                    "resource": [
+                        "router"
+                    ],
+                    "layout_mind_offset": {
+                        "x": -79.99999999999994,
+                        "y": 0
+                    },
+                    "layout_right_offset": {
+                        "x": -62,
+                        "y": 2
+                    },
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cdmxse67uio0",
+                            "created": 1629320146549,
+                            "text": "gp21-router"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cdmxtdrnzxs0",
+                            "created": 1629320224033,
+                            "text": "controllers/index.js",
+                            "resource": [
+                                "index"
+                            ],
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdmyfxsdtnk0",
+                                    "created": 1629321991624,
+                                    "text": "views/index.art",
+                                    "resource": [
+                                        "indexTpl"
+                                    ],
+                                    "priority": 2
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy23wq6d40",
+                                    "created": 1629320907849,
+                                    "text": "models/auth.js",
+                                    "resource": [
+                                        "auth as authMode"
+                                    ],
+                                    "expandState": "expand",
+                                    "priority": 1
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy99h88q80",
+                                            "created": 1629321468521,
+                                            "text": "utils/http.js",
+                                            "resource": [
+                                                "http"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmyi6oopuw0",
+                                    "created": 1629322167719,
+                                    "text": "components/pageheader.js",
+                                    "resource": [
+                                        "pageHeader"
+                                    ],
+                                    "priority": 3
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmyj1mjgsg0",
+                                            "created": 1629322235070,
+                                            "text": "views/index-pageheader.art",
+                                            "resource": [
+                                                "indexPageHeaderTpl"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy5fns4yg0",
+                                    "created": 1629321168522,
+                                    "text": "databus/page.js",
+                                    "resource": [
+                                        "page"
+                                    ]
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cdmxtp8uxcw0",
+                            "created": 1629320249017,
+                            "text": "controllers/users/list-user.js",
+                            "resource": [
+                                "listUser"
+                            ],
+                            "layout_right_offset": {
+                                "x": 10.666666666666742,
+                                "y": 0
+                            },
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdmxw96w9hk0",
+                                    "created": 1629320449162,
+                                    "text": "views/users.art",
+                                    "resource": [
+                                        "usersTpl"
+                                    ],
+                                    "priority": 2
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmxx3j6npk0",
+                                    "created": 1629320515209,
+                                    "text": "views/users-list.art",
+                                    "resource": [
+                                        "userListTpl"
+                                    ],
+                                    "priority": 6
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmxy9fpfo80",
+                                    "created": 1629320606424,
+                                    "text": "components/paginations.js",
+                                    "resource": [
+                                        "pagination"
+                                    ],
+                                    "expandState": "expand",
+                                    "priority": 5
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy55jgd8o0",
+                                            "created": 1629321146492,
+                                            "text": "views/users-pages.art",
+                                            "resource": [
+                                                "userListPageTpl"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy5fns4yg0",
+                                            "created": 1629321168522,
+                                            "text": "databus/page.js",
+                                            "resource": [
+                                                "page"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmxzkx0ajk0",
+                                    "created": 1629320709778,
+                                    "text": "controllers/users/add-user.js",
+                                    "resource": [
+                                        "addUser"
+                                    ],
+                                    "priority": 3
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy5fns4yg0",
+                                            "created": 1629321168522,
+                                            "text": "databus/page.js",
+                                            "resource": [
+                                                "page"
+                                            ],
+                                            "priority": 3
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy7vla7y80",
+                                            "created": 1629321359927,
+                                            "text": "views/user-add.art",
+                                            "resource": [
+                                                "usersAddTpl"
+                                            ],
+                                            "priority": 1
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy8k605mg0",
+                                            "created": 1629321413423,
+                                            "text": "models/user-add.js",
+                                            "resource": [
+                                                "userAdd as userAddModel"
+                                            ],
+                                            "priority": 2
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "cdmy99h88q80",
+                                                    "created": 1629321468521,
+                                                    "text": "utils/http.js",
+                                                    "resource": [
+                                                        "http"
+                                                    ]
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy1iw6ly80",
+                                    "created": 1629320862103,
+                                    "text": "models/users-list.js",
+                                    "resource": [
+                                        "usersList as usersListModel"
+                                    ],
+                                    "layout_right_offset": {
+                                        "x": -5.8333331015373915,
+                                        "y": -12.499999503294589
+                                    },
+                                    "priority": 4
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy99h88q80",
+                                            "created": 1629321468521,
+                                            "text": "utils/http.js",
+                                            "resource": [
+                                                "http"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy23wq6d40",
+                                    "created": 1629320907849,
+                                    "text": "models/auth.js",
+                                    "resource": [
+                                        "auth as authMode"
+                                    ],
+                                    "priority": 1
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy99h88q80",
+                                            "created": 1629321468521,
+                                            "text": "utils/http.js",
+                                            "resource": [
+                                                "http"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy2fpendk0",
+                                    "created": 1629320933527,
+                                    "text": "common/index.js",
+                                    "resource": [
+                                        "remove"
+                                    ],
+                                    "priority": 7
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmyc72llds0",
+                                            "created": 1629321698376,
+                                            "text": "models/remove.js",
+                                            "resource": [
+                                                "* as removeModel"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy3a322ns0",
+                                            "created": 1629320999656,
+                                            "text": "databus/page.js",
+                                            "resource": [
+                                                "page"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy3a322ns0",
+                                    "created": 1629320999656,
+                                    "text": "databus/page.js",
+                                    "resource": [
+                                        "page"
+                                    ]
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cdmxu3411i80",
+                            "created": 1629320279200,
+                            "text": "controllers/positions/list-position",
+                            "resource": [
+                                "listPosition"
+                            ],
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdmyk84eug00",
+                                    "created": 1629322327575,
+                                    "text": "views/positions.art",
+                                    "resource": [
+                                        "positionsTpl"
+                                    ]
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmxy9fpfo80",
+                                    "created": 1629320606424,
+                                    "text": "components/paginations.js",
+                                    "resource": [
+                                        "pagination"
+                                    ],
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy55jgd8o0",
+                                            "created": 1629321146492,
+                                            "text": "views/users-pages.art",
+                                            "resource": [
+                                                "userListPageTpl"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy5fns4yg0",
+                                            "created": 1629321168522,
+                                            "text": "databus/page.js",
+                                            "resource": [
+                                                "page"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmym6vzvhc0",
+                                    "created": 1629322481618,
+                                    "text": "views/position-list.art",
+                                    "resource": [
+                                        "positionListTpl"
+                                    ]
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmymrrq5mo0",
+                                    "created": 1629322527072,
+                                    "text": "models/positions.js",
+                                    "resource": [
+                                        "positionList"
+                                    ]
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy99h88q80",
+                                            "created": 1629321468521,
+                                            "text": "utils/http.js",
+                                            "resource": [
+                                                "http"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy5fns4yg0",
+                                    "created": 1629321168522,
+                                    "text": "databus/page.js",
+                                    "resource": [
+                                        "page"
+                                    ]
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy23wq6d40",
+                                    "created": 1629320907849,
+                                    "text": "models/auth.js",
+                                    "resource": [
+                                        "auth as authMode"
+                                    ],
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmy99h88q80",
+                                            "created": 1629321468521,
+                                            "text": "utils/http.js",
+                                            "resource": [
+                                                "http"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmyp8zactc0",
+                                    "created": 1629322721263,
+                                    "text": "controllers/positions/add-position.js",
+                                    "resource": [
+                                        "addPosition"
+                                    ]
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmypoi85ds0",
+                                            "created": 1629322755060,
+                                            "text": "views/positions-add.art",
+                                            "resource": [
+                                                "positionsAddTpl"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy5fns4yg0",
+                                            "created": 1629321168522,
+                                            "text": "databus/page.js",
+                                            "resource": [
+                                                "page"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmymrrq5mo0",
+                                            "created": 1629322527072,
+                                            "text": "models/positions.js",
+                                            "resource": [
+                                                "positionsAdd"
+                                            ]
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "cdmy99h88q80",
+                                                    "created": 1629321468521,
+                                                    "text": "utils/http.js",
+                                                    "resource": [
+                                                        "http"
+                                                    ]
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdn041zu5k00",
+                                    "created": 1629326702631,
+                                    "text": "controllers/positions/update-position.js",
+                                    "resource": [
+                                        "updatePosition, fillPositionsUpdateTpl"
+                                    ],
+                                    "layout_right_offset": {
+                                        "x": 99.0000139328913,
+                                        "y": -34.00000000000023
+                                    },
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdn050b257c0",
+                                            "created": 1629326777320,
+                                            "text": "views/positions-update.art",
+                                            "layout_right_offset": {
+                                                "x": 32.99997855677066,
+                                                "y": 0
+                                            },
+                                            "resource": [
+                                                "positionsUpdateTpl"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdn05a6ixko0",
+                                            "created": 1629326798814,
+                                            "text": "views/positions-update-form.art",
+                                            "resource": [
+                                                "positionsUpdateFormTpl"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy5fns4yg0",
+                                            "created": 1629321168522,
+                                            "text": "databus/page.js",
+                                            "resource": [
+                                                "page"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy99h88q80",
+                                            "created": 1629321468521,
+                                            "text": "utils/http.js",
+                                            "resource": [
+                                                "http"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmymrrq5mo0",
+                                            "created": 1629322527072,
+                                            "text": "models/positions.js",
+                                            "resource": [
+                                                "positionsUpdate"
+                                            ]
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "cdmy99h88q80",
+                                                    "created": 1629321468521,
+                                                    "text": "utils/http.js",
+                                                    "resource": [
+                                                        "http"
+                                                    ]
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cdmy2fpendk0",
+                                    "created": 1629320933527,
+                                    "text": "common/index.js",
+                                    "resource": [
+                                        "remove"
+                                    ],
+                                    "layout_right_offset": {
+                                        "x": 80,
+                                        "y": 15
+                                    }
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cdmyc72llds0",
+                                            "created": 1629321698376,
+                                            "text": "models/remove.js",
+                                            "resource": [
+                                                "* as removeModel"
+                                            ]
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cdmy3a322ns0",
+                                            "created": 1629320999656,
+                                            "text": "databus/page.js",
+                                            "resource": [
+                                                "page"
+                                            ]
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cdmxue1mxw00",
+                            "created": 1629320303000,
+                            "text": "controllers/signin.js",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdn0gcvnl8w0",
+                                    "created": 1629327666693,
+                                    "text": "views/signin.art",
+                                    "resource": [
+                                        "signinTpl"
+                                    ]
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cdn0h03p3200",
+                                    "created": 1629327717245,
+                                    "text": "models/signin.js",
+                                    "resource": [
+                                        "signin as signinModel"
+                                    ]
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cdmy23wq6d40",
+                            "created": 1629320907849,
+                            "text": "models/auth.js",
+                            "resource": [
+                                "auth as authMode"
+                            ],
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cdmy99h88q80",
+                                    "created": 1629321468521,
+                                    "text": "utils/http.js",
+                                    "resource": [
+                                        "http"
+                                    ]
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

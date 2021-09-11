@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="openBtn">open</button><button id="saveBtn">save</button>
+    <div>
+        <button id="messageBtn">message</button>
+    </div>
+    <img src="" id="myimg" alt="" />
+    <script>
+        var fs = require("fs");
+        const {
+            dialog
+        } = require("electron").remote;
+        let openBtn = document.querySelector("#openBtn");
+        openBtn.onclick = function() {
+            dialog
+                .showOpenDialog({
+                    title: "please choose a girl",
+                    defaultPath: "girl.jpg",
+                    filters: [{
+                        name: "img",
+                        extensions: ["jpg"],
+                    }, ],
+                    buttonLabel: "choose a girl",
+                })
+                .then((result) => {
+                    let image = document.querySelector("#myimg");
+                    image.setAttribute("src", result.filePaths[0]);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        };
+
+        let saveBtn = document.querySelector("#saveBtn");
+        saveBtn.onclick = function() {
+            dialog
+                .showSaveDialog({
+                    title: "save as a file",
+                })
+                .then((result) => {
+                    console.log(result);
+                    fs.writeFileSync(
+                        result.filePath,
+                        "my songs know what you did in the dark"
+                    );
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        };
+
+        let messageBtn = document.querySelector("#messageBtn");
+        messageBtn.onclick = function() {
+            dialog
+                .showMessageBox({
+                    type: "warning",
+                    title: "go or not go?",
+                    message: "go to to have fun",
+                    buttons: ["i like to go", "it is shit "],
+                })
+                .then((result) => {
+                    console.log(result);
+                });
+        };
+    </script>
+</body>
+
+</html>

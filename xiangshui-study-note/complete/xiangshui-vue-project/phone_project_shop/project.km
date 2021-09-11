@@ -1,0 +1,268 @@
+{
+    "root": {
+        "data": {
+            "id": "ce473fqs0000",
+            "created": 1631072921227,
+            "text": "project"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "ce48o6yevwo0",
+                    "created": 1631077368855,
+                    "text": "main.js"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ce48o9y0n080",
+                            "created": 1631077375361,
+                            "text": "vue"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "ce48ocnqsio0",
+                            "created": 1631077381271,
+                            "text": "App.vue"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ce48oxy2i2o0",
+                                    "created": 1631077427607,
+                                    "text": "mainTab"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ce48oj879e80",
+                            "created": 1631077395568,
+                            "text": "router"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ce48qhs0xdc0",
+                                    "created": 1631077549143,
+                                    "text": "home.vue",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ce48z9i55i80",
+                                            "created": 1631078236407,
+                                            "text": "NavBar"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51cuoslh40",
+                                            "created": 1631158292333,
+                                            "text": "HomeSwiper"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51cz3f4c80",
+                                            "created": 1631158301925,
+                                            "text": "RecommendView"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51d3h0lsw0",
+                                            "created": 1631158311454,
+                                            "text": "FeatureView"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce498p9ilvk0",
+                                            "created": 1631078975992,
+                                            "text": "TabControl"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce4bt6k17s80",
+                                            "created": 1631086223136,
+                                            "text": "GoodList"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51dew6hlc0",
+                                            "created": 1631158336316,
+                                            "text": "Scroll"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51didcaj40",
+                                            "created": 1631158343884,
+                                            "text": "BackTop"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51dpjvnnk0",
+                                            "created": 1631158359517,
+                                            "text": "network/home.js"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "ce48qkzsteo0",
+                                    "created": 1631077556142,
+                                    "text": "cart.vue"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ce48qnqxn0g0",
+                                    "created": 1631077562136,
+                                    "text": "mine.vue"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ce48qtws0e00",
+                                    "created": 1631077575550,
+                                    "text": "Detail.vue"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ce51dzh8joo0",
+                                            "created": 1631158381125,
+                                            "text": "DetailNavBar"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51e1rx5sw0",
+                                            "created": 1631158386124,
+                                            "text": "DetailSwiper"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51e4hughc0",
+                                            "created": 1631158392045,
+                                            "text": "DetailBaseInfo"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51fomy0880",
+                                            "created": 1631158514253,
+                                            "text": "DetailShopInfo"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51fqdejhs0",
+                                            "created": 1631158518030,
+                                            "text": "DetailGoodsInfo"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51fsw0ja00",
+                                            "created": 1631158523509,
+                                            "text": "DetailParamInfo"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51fuxloh40",
+                                            "created": 1631158527959,
+                                            "text": "DetailCommentInfo"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51fwy1zzs0",
+                                            "created": 1631158532340,
+                                            "text": "GoodsList"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51fzgfpv40",
+                                            "created": 1631158537805,
+                                            "text": "Scroll"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51g1xqiig0",
+                                            "created": 1631158543204,
+                                            "text": "DetailBottomBar"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51g54kyj40",
+                                            "created": 1631158550148,
+                                            "text": "backTopMixin"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ce51gcpdh940",
+                                            "created": 1631158566643,
+                                            "text": "toast"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ce48onkepxc0",
+                            "created": 1631077405014,
+                            "text": "store"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

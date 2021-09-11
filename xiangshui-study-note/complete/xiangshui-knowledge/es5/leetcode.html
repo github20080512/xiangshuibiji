@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      // var addTwoNumbers = function (l1, l2) { var list1 = []; var list2 = []; var l3 = new ListNode(null); var node = l3; var pre = 0; while (l1 != null || l2 != null) { list1.push(l1 != null ? l1.val : 0); list2.push(l2 != null ? l2.val : 0); if (l1 != null) l1 = l1.next; if (l2 != null) l2 = l2.next; } for (var i = 0; i < list1.length; i++) { let sum = 0; sum = list1[i] + list2[i] + pre; if (sum >= 10) { pre = 1; sum = sum - 10; } else { pre = 0; } node.next = new ListNode(sum); node = node.next; if (i == list1.length - 1 && pre == 1) { node.next = new ListNode(1); node = node.next; } } return l3.next; };
+      let article = "无重复字符的最长子串",
+        descrip =
+          "给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度";
+
+      // var lengthOfLongestSubstring = function (s) { let res = 0, temp = ""; let index = 0, len = 0; for (let i = 0; i < s.length; i++) { index = temp.indexOf(s[i]); if (index == -1) { temp = temp + s[i]; } else { temp = temp.slice(index + 1) + s[i]; } len = temp.length; res < len && (res = len); } return res; };
+
+      // var findMedianSortedArrays = function (nums1, nums2) { let tem = nums1.concat(nums2).sort((a, b) => { return a - b; }); let len = tem.length; let res; if (len % 2 == 1) { res = tem[(len - 1) / 2]; } if (len % 2 == 0) { res = (tem[len / 2 - 1] + tem[len / 2]) / 2; } return res; }; findMedianSortedArrays([1], []); findMedianSortedArrays([], [6]);
+
+      //2222
+
+      //最长公共前缀 var longestCommonPrefix = function (strs) { var dfs = (a, j) => { for (var i = 0, res = []; i < a.length; i++) { if (a[i] === strs[j][i]) { res.push(a[i]); } else { break; } } return res.length && strs[++j] !== undefined ? dfs(res, j) : res.join(""); }; return strs.length === 1 ? strs[0] : dfs((strs[0] && strs[0].split("")) || [], 1); };
+
+      // 有效的左右括号 var isValid = function (s) { const len = s.length; /** * 特殊情况处理 **/ // 空字符串可被认为是有效字符串 if (len === 0) { return true; } // 剪枝，字符串长度为奇数，必然无效 if (len % 2 === 1) { return false; } // 定义字符串匹配 map const map = { "}": "{", ")": "(", "]": "[", }; // 使用栈来校验闭合情况 const stack = []; for (let i = 0; i <= len - 1; i++) { if (!map[s[i]]) { // 左括号，入栈 stack.push(s[i]); } else { // 右括号，出栈，判断如果与前一个括号不匹配，返回 false if (map[s[i]] !== stack.pop()) { return false; } } // 剪枝，如果待匹配左括号的数量超过一半，返回 false （奇数已先前排除） if (stack.length > len / 2) { return false; } } // 遍历结束，如果仍有未匹配完的左括号，返回 false if (stack.length > 0) { return false; } else { return true; } };
+
+      //lecode 1  var twoSum = function (nums, target) { let arr = []; for (let i = 0; i < nums.length - 1; i++) { for (let j = i + 1; j < nums.length; j++) if (nums[i] + nums[j] === target) { arr.push(i, j); } } return arr; };
+      //lecode 1    var twoSum = function (nums, target) { let i = 0; let temp = []; while (i < nums.length) { let num = target - nums[i]; if (temp[num] != undefined) { return [temp[num], i]; } temp[nums[i]] = i; i++; } };
+
+      var lengthOfLongestSubstring = function (s) {
+        if (s == "") return 0;
+        let maxLen = 0;
+        for (let i = 0; i < s.length; i++) {
+          let tem = [];
+          for (let j = i; j < s.length + 1; j++) {
+            if (tem.includes(s[j]) || !s[j]) {
+              maxLen = tem.length > maxLen ? tem.length : maxLen;
+              break;
+            } else {
+              tem.push(s[j]);
+            }
+          }
+        }
+        return maxLen;
+      };
+
+      var lengthOfLongestSubstring = function (s) {
+        // 滑动窗口初始化为一个空数组
+        let arr = [];
+        // 要返回的字符串的长度
+        let max = 0;
+        for (let i = 0; i < s.length; i++) {
+          // 使用 indexOf 判断是否在数组中出现过
+          let index = arr.indexOf(s[i]);
+          // 如果出现过
+          if (index !== -1) {
+            // 从数组开头到当前字符串全部截取掉
+            arr.splice(0, index + 1);
+          }
+          // 在窗口右边放进新的字符
+          arr.push(s.charAt(i));
+          // 更新下最大值
+          max = Math.max(arr.length, max);
+        }
+        // 返回
+        return max;
+      };
+
+      var longestPalindrome = function (s) {
+        let result = s[0] || "";
+        for (let i = 0; i < s.length; i++) {
+          for (let j = 1; j <= 2; j++) {
+            //偶数奇数回文串
+            let left = i,
+              right = i + j;
+            while (left >= 0 && right < s.length && s[left] === s[right]) {
+              left--, right++; //向外扩展直到两端不相同
+            }
+            let length = right - left - 1; //(right - 1) - (left + 1) + 1
+
+            if (length > result.length) {
+              result = s.substr(left + 1, length);
+            }
+          }
+        }
+        return result;
+      };
+      //暴力枚举法
+
+      function isPalindrome(str) {
+        var len = str.length;
+        var middle = parseInt(len / 2);
+        for (var i = 0; i < middle; i++) {
+          if (str[i] != str[len - i - 1]) {
+            return false;
+          }
+        }
+        return true;
+      }
+      var ans = "";
+      var max = 0;
+      var len = s.length;
+      for (var i = 0; i < len; i++) {
+        for (var r = i + 1; r <= len; r++) {
+          var tmpStr = s.substring(i, r);
+          if (isPalindrome(tmpStr) && tmpStr.length > max) {
+            ans = s.substring(i, r);
+            max = tmpStr.length;
+          }
+        }
+      }
+      return ans;
+
+      //10. 正则表达式匹配
+      let isMatch = function (s, p) {
+        let dp = Array(s.length + 1);
+        for (let i = 0; i < dp.length; i++) {
+          dp[i] = Array(p.length + 1).fill(false);
+        }
+        dp[0][0] = true;
+        for (let i = 1; i < p.length; i++) {
+          if (p.charAt(i) === "*") {
+            dp[0][i + 1] = dp[0][i - 1];
+          }
+        }
+
+        for (let i = 0; i < s.length; i++) {
+          for (let j = 0; j < p.length; j++) {
+            if (p.charAt(j) === ".") {
+              dp[i + 1][j + 1] = dp[i][j];
+            }
+
+            if (p.charAt(j) === s.charAt(i)) {
+              dp[i + 1][j + 1] = dp[i][j];
+            }
+
+            if (p.charAt(j) === "*") {
+              if (dp[i + 1][j - 1]) {
+                dp[i + 1][j + 1] = true;
+              } else {
+                if (p.charAt(j - 1) == s.charAt(i) || p.charAt(j - 1) == ".") {
+                  dp[i + 1][j + 1] = dp[i][j + 1];
+                }
+              }
+            }
+          }
+        }
+        return dp[s.length][p.length];
+      };
+
+      //最大水桶
+
+      var maxArea = function (height) {
+        // CPCT - BVL - TLD
+        // 思路一 双重循环 O(n^2)
+        if (!height || !height.length) return 0;
+
+        const len = height.length;
+        let max = 0;
+
+        for (let i = 0; i < len; i++) {
+          for (let j = i + 1; j < len; j++) {
+            const curArea = (j - i) * Math.min(height[j], height[i]);
+            max = Math.max(curArea, max);
+          }
+        }
+
+        return max;
+      };
+      // 最大水桶code2
+
+      var maxArea = function (height) {
+        let left = 0;
+        let right = height.length - 1;
+        let max = 0;
+        while (left < right) {
+          const area = (right - left) * Math.min(height[right], height[left]);
+          if (area > max) {
+            max = area;
+          }
+          if (height[left] < height[right]) {
+            const lastLeft = height[left];
+            left++;
+            while (height[left] <= lastLeft && left < right) {
+              left++;
+            }
+          } else {
+            const lastRight = height[right];
+            right--;
+            while (lastRight >= height[right] && left < right) {
+              right--;
+            }
+          }
+        }
+        return max;
+      };
+
+      var maxArea = function (height) {
+        if (!height || !height.length) return 0;
+        const len = height.length;
+        let max = 0;
+        for (var i = 0; i < len; i++) {
+          for (var j = i + 1; i < len; j++) {
+            const area = (j - i) * Math.min(height[i], height[j]);
+            max = Math.max(area, max);
+          }
+        }
+        return max;
+      };
+    </script>
+  </body>
+</html>

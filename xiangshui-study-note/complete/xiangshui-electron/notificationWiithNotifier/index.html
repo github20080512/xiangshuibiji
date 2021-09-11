@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>internet</h2>
+    <button id="notifyBtn">notify</button>
+
+    <script>
+        window.addEventListener("online", () => {
+            alert("internet online");
+        });
+        window.addEventListener("offline", () => {
+            alert("internet offline");
+        });
+        let notifyBtn = document.getElementById("notifyBtn");
+
+        const notifier = require("node-notifier");
+        const path = require("path");
+        notifyBtn.onclick = function() {
+            notifier.notify({
+                    title: "the js is so hard",
+                    message: "do you like it?do you want to learn more?",
+                    icon: path.join(__dirname, "log.jpg"), // Absolute path (doesn't work on balloons)
+                    sound: true, // Only Notification Center or Windows Toasters
+                    wait: true, // Wait with callback, until user action is taken against notification, does not apply to Windows Toasters as they always wait or notify-send as it does not support the wait option
+                },
+                function(err, response, metadata) {
+                    // Response is response from notification
+                    // Metadata contains activationType, activationAt, deliveredAt
+                }
+            );
+
+            notifier.on("click", function(notifierObject, options, event) {
+                // Triggers if `wait: true` and user clicks notification
+            });
+
+            notifier.on("timeout", function(notifierObject, options) {
+                // Triggers if `wait: true` and notification closes
+            });
+        };
+    </script>
+</body>
+
+</html>

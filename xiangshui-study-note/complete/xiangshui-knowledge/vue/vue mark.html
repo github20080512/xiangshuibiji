@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <script>
+      const RootComponent = {
+        /* 选项 */
+      };
+      const app = Vue.createApp(RootComponent);
+      const vm = app.mount("#app");
+      //在 data 中定义的 property 是通过组件实例暴露的：
+      const app = Vue.createApp({
+        data() {
+          return { count: 4 };
+        },
+      });
+
+      const vm = app.mount("#app");
+
+      console.log(vm.count); // => 4
+
+      // created 钩子可以用来在一个实例被创建之后执行代码：
+
+      Vue.createApp({
+        data() {
+          return { count: 1 };
+        },
+        created() {
+          // `this` 指向 vm 实例
+          console.log("count is: " + this.count); // => "count is: 1"
+        },
+      });
+
+    </script>
+  </body>
+</html>

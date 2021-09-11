@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        font-size: 11px;
+        width: 100%;
+      }
+
+      body {
+        background-color: rgba(128, 128, 128, 0.047);
+      }
+
+      h5 {
+        margin: 5px 0px;
+      }
+
+      table {
+        border-color: rgb(37, 255, 240);
+      }
+
+      table th {
+        font-weight: normal;
+        padding: 5px;
+      }
+
+      table td {
+        padding: 5px;
+        text-align: left;
+      }
+
+      table input {
+        width: 100%;
+      }
+
+      table .data-edit,
+      table .edit-btn,
+      table .data-delete,
+      table .data-delete,
+      table .add-new,
+      table .delete-one,
+      table .data-save {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        font-size: 9px;
+        margin: 2px;
+        outline: none;
+        border: 1px solid;
+        cursor: pointer;
+        color: #ffbe43;
+      }
+
+      table tr td:nth-child(4) {
+        text-align: center;
+      }
+
+      table .edit-btn:hover,
+      table .data-edit:hover,
+      table .data-delete:hover,
+      table .add-new:hover,
+      table .delete-one:hover,
+      table .data-save:hover {
+        border: 1px solid red;
+        color: red;
+      }
+
+      body,
+      html {
+        height: 100%;
+      }
+
+      body {
+      }
+
+      #app {
+        width: 100%;
+        height: 100%;
+        /* background: #ffffffc7; */
+        position: fixed;
+        overflow: scroll;
+      }
+
+      #user-psd-wraper {
+        margin-top: 100px;
+      }
+
+      header h4 {
+        color: orange;
+        margin: 10px;
+        font-weight: 500;
+      }
+
+      a {
+        text-decoration: none;
+        color: orange;
+      }
+
+      #show {
+        border: none;
+        background: none;
+        cursor: pointer;
+        float: right;
+        outline: none;
+        margin-right: 15px;
+      }
+
+      #needcopy {
+        opacity: 0;
+        float: right;
+      }
+
+      .sub-btn,
+      #btn-textarea-sub {
+        padding: 0 10px;
+        height: 30px;
+        cursor: pointer;
+        margin-top: 5px;
+        outline: none;
+      }
+
+      #btn-textarea-sub {
+        width: 390px;
+      }
+
+      .sub-btn:hover,
+      #btn-textarea-sub:hover {
+        background: orange;
+        outline: none;
+        color: #fff;
+        border: 1px solid orange;
+      }
+
+      .sub-btn:focus,
+      #btn-textarea-sub:focus {
+        border: 2px solid orange;
+      }
+
+      .setMode,
+      #setIsFrame,
+      #disIsFrame {
+        margin-left: 5px;
+        font-size: 8px;
+      }
+
+      .search-border {
+        border: 1px solid black;
+        border-bottom: none;
+        display: inline-block;
+        height: 30px;
+        box-sizing: border-box;
+        font-size: 0;
+      }
+
+      .main-btn,
+      .extra-fn {
+        display: inline-block;
+      }
+
+      .textarea-border {
+        border: 1px solid black;
+        width: 391px;
+        height: 300px;
+        box-sizing: border-box;
+        font-size: 0;
+        margin-top: 5px;
+      }
+
+      .textarea-border .other-input:nth-child(2) {
+        width: 288px;
+      }
+
+      .textarea-border textarea {
+        width: 387px;
+        height: 268px;
+        outline: none;
+        border: none;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+
+      #int {
+        padding: 5px;
+        width: 302px;
+        outline: none;
+        box-sizing: border-box;
+        border: 1px solid grey;
+        height: 30px;
+      }
+
+      #int:focus {
+        border: 1px solid black;
+      }
+
+      #log-wrap {
+        margin-left: 5px;
+      }
+
+      .other-input {
+        border: none;
+        border-bottom: 2px solid grey;
+        width: 100px;
+        height: 30px;
+        outline: none;
+        box-sizing: border-box;
+        padding: 0px 5px;
+        text-align: left;
+      }
+
+      .other-input::-webkit-input-placeholder {
+        color: rgb(192, 188, 188);
+      }
+
+      .other-input:focus {
+        border-bottom: 2px solid orange;
+      }
+
+      .other-input:focus::-webkit-input-placeholder {
+        color: rgba(221, 199, 32, 0.674);
+      }
+
+      #user-psd {
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 5px 10px;
+        background: none;
+        text-align: center;
+      }
+
+      #user-psd:focus {
+        border-bottom: 1px solid orange;
+        outline: none;
+        color: orange;
+        font-weight: bold;
+      }
+
+      #user-app {
+        margin-top: 60px;
+        width: 100%;
+      }
+
+      .search-wraper {
+        width: 348px;
+        margin: 15px auto;
+      }
+
+      .search-wraper:nth-child(2) {
+        width: 390px;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      #webs {
+        margin-left: 15px;
+      }
+
+      .prompt {
+        margin-top: 5px;
+      }
+
+      .prompt-wrap {
+        margin-left: 12px;
+        cursor: pointer;
+        color: grey;
+      }
+
+      .prompt-wrap:nth-child(1) {
+        margin-left: 5px;
+      }
+
+      .prompt-wrap:hover {
+        color: black;
+      }
+
+      .prompt-index {
+        color: grey;
+      }
+
+      .message {
+        color: red;
+        height: 10px;
+        padding: 5px;
+      }
+
+      .information-wrap .mini-button {
+        float: right;
+        margin-right: 15px;
+      }
+      .information-wrap p {
+        text-indent: 2em;
+        color: black;
+      }
+      .information-wrap .information-back {
+        float: left;
+        line-height: 15px;
+      }
+      .inf-detail {
+        cursor: pointer;
+      }
+      .inf-detail:hover {
+        color: orange;
+      }
+
+      .mini-button {
+        width: 15px;
+        height: 15px;
+        line-height: 4px;
+        border: 1px solid red;
+        border-radius: 50%;
+        outline: none;
+        background: #fff;
+        color: red;
+        padding-bottom: 1px;
+      }
+
+      .mini-button:hover {
+        background: red;
+        color: #fff;
+      }
+
+      .choose-yes {
+        border: 1px solid green;
+        color: green;
+        margin-left: 5px;
+      }
+
+      .choose-not {
+        margin-left: 5px;
+      }
+
+      .choose-yes:hover {
+        background: green;
+        color: #fff;
+      }
+
+      #psd {
+        margin: 0px auto;
+        display: block;
+        width: 185px;
+      }
+
+      .log-div {
+        height: 90px;
+      }
+
+      #favourite-link {
+        margin: 10px;
+      }
+
+      #favourite-link a {
+        cursor: pointer;
+        color: grey;
+        margin-right: 10px;
+      }
+
+      #favourite-link a:hover {
+        color: #ffbe43;
+      }
+
+      .close-webs {
+        float: right;
+        margin-right: 130px;
+      }
+
+      #infor {
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255);
+        color: red;
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        margin-left: -50px;
+      }
+
+      .input-wrap td {
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .add-name,
+      .add-content,
+      .add-shortcut {
+        padding: 3px;
+        outline: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        box-sizing: border-box;
+        background-color: rgb(224, 253, 253);
+      }
+    </style>
+    <link rel="stylesheet" href="./css/index1.css" />
+    <link rel="stylesheet" href="./css/iconfont/iconfont.css" />
+  </head>
+
+  <body>
+    <div id="app" style="background: none">
+      <header>
+        <h4><a class="rerend-int" href="javascript:;">CONTROL</a></h4>
+      </header>
+      <div>
+        <div>
+          <input id="needcopy" type="text" value="" />
+          <audio id="mp3">
+            <source
+              src="D:\我的文档\Music\水木年华 - 完美世界 (自由版).mp3"
+              type="audio/mpeg"
+            />
+          </audio>
+        </div>
+        <div id="user-psd-wraper" style="display: block">
+          <div id="psd">
+            <input id="user-psd" type="password" placeholder="" />
+          </div>
+        </div>
+
+        <div id="user-app" style="display: none">
+          <div class="search-wraper">
+            <div class="main-btn">
+              <input type="text" id="int" />
+              <button class="sub-btn" id="btn">Go</button>
+            </div>
+
+            <div class="extra-fn" style="display: none">
+              <div class="search-border"></div>
+              <button class="sub-btn" id="save">Go</button>
+            </div>
+
+            <div class="message"></div>
+            <div class="prompt" style="display: none"></div>
+            <div class="information-wrap" style="display: none">
+              <div class="clearfix" style="margin-bottom: 8px">
+                <button
+                  style="display: none"
+                  class="mini-button information-back"
+                >
+                  <</button
+                ><button class="mini-button clear-calculate">x</button>
+              </div>
+
+              <div class="information"></div>
+            </div>
+          </div>
+
+          <div class="search-wraper" style="display: none">
+            <div class="prompt" style="display: none"></div>
+            <div class="message"></div>
+            <div class="textarea-border">
+              <input
+                class="other-input other-textarea"
+                type=" text "
+                placeholder="ideas"
+              /><input
+                class="other-input other-textarea"
+                type="text"
+                placeholder="title"
+              /><textarea
+                name=""
+                class="other-textarea"
+                id=""
+                cols="3"
+                rows="10"
+              ></textarea>
+            </div>
+            <button id="btn-textarea-sub">Go</button>
+          </div>
+
+          <div style="display: none" id="webs">
+            <div>
+              <button class="mini-button close-webs">x</button>
+            </div>
+            <div>
+              <button class="setMode" id="seturl">seturl</button
+              ><button class="setMode" id="setfile">setfile</button>
+              <button id="setIsFrame">setIsFrame</button
+              ><span id="disIsFrame">true</span>
+            </div>
+            <div id="favourite-link">
+              <a
+                class="favourite-a"
+                href="javascript:;"
+                data-link="http://c.runoob.com/front-end/854"
+                >Reg</a
+              >
+            </div>
+            <div>
+              <h5>c.d:</h5>
+              <table border="1px" cellspacing="0">
+                <thead>
+                  <th>name</th>
+                  <th>content</th>
+                  <th>shortcut</th>
+                  <th>
+                    <button class="data-edit">e</button
+                    ><button class="data-delete">-</button
+                    ><button class="add-new">+</button>
+                  </th>
+                </thead>
+                <tbody id="cmd-tbody"></tbody>
+              </table>
+            </div>
+            <div>
+              <h5>url:</h5>
+              <table border="1px" cellspacing="0">
+                <thead>
+                  <th>name</th>
+                  <th>content</th>
+                  <th>shortcut</th>
+                  <th>
+                    <button class="data-edit">e</button
+                    ><button class="data-delete">-</button
+                    ><button class="add-new">+</button>
+                  </th>
+                </thead>
+                <tbody id="url-tbody"></tbody>
+              </table>
+            </div>
+            <div>
+              <h5>file:</h5>
+              <table border="1px" cellspacing="0">
+                <thead>
+                  <th>name</th>
+                  <th>content</th>
+                  <th>shortcut</th>
+                  <th>
+                    <button class="data-edit">e</button
+                    ><button class="data-delete">-</button
+                    ><button class="add-new">+</button>
+                  </th>
+                </thead>
+                <tbody id="file-tbody"></tbody>
+              </table>
+            </div>
+            <div>
+              <h5>quickCopy:</h5>
+              <table border="1px" cellspacing="0">
+                <thead>
+                  <th>name</th>
+                  <th>content</th>
+                  <th>shortcut</th>
+                  <th>
+                    <button class="data-edit">e</button
+                    ><button class="data-delete">-</button
+                    ><button class="add-new">+</button>
+                  </th>
+                </thead>
+                <tbody id="quick-copy-tbody"></tbody>
+              </table>
+            </div>
+            <div>
+              <h5>default quick:</h5>
+              <table border="1px" cellspacing="0">
+                <thead>
+                  <th>name</th>
+                  <th>content</th>
+                  <th>shortcut</th>
+                </thead>
+                <tbody id="quick-default"></tbody>
+              </table>
+            </div>
+
+            <div>
+              <h5>pa</h5>
+              <table border="1px" cellspacing="0">
+                <thead>
+                  <th>url</th>
+                  <th>path</th>
+                  <th>condition</th>
+                  <th>
+                    <button class="data-edit">e</button
+                    ><button class="data-delete">-</button
+                    ><button class="add-new">+</button>
+                  </th>
+                </thead>
+                <tbody id="pa-tbody"></tbody>
+              </table>
+            </div>
+            <div class="http-div"></div>
+          </div>
+          <div>
+            <button id="show"></button>
+          </div>
+          <div class="log-div">
+            <div id="log-wrap">
+              <h5>login history:</h5>
+              <div id="log-info"></div>
+            </div>
+          </div>
+        </div>
+        <div class="todo" style="display: none">
+          <div class="clock"></div>
+
+          <ul class="title">
+            <li class="clearfix">
+              <div class="index">To Do</div>
+              <div class="event-wrap">Event</div>
+              <div class="time-wrap">Time</div>
+              <div class="remind-wrap">Remind</div>
+              <div class="oparate-wrap">Operate</div>
+            </li>
+            <li class="clearfix" id="todo-input">
+              <div class="index">new</div>
+              <div class="event-wrap">
+                <input type="text" id="todo-textarea" />
+              </div>
+              <div class="time-wrap">
+                <div class="time-div">
+                  <input id="todo-date-input" type="date" />
+                  <input id="todo-time-input" type="time" />
+                  <input id="everyday-checkbox" type="checkbox" /> every day
+                </div>
+              </div>
+              <div class="remind-wrap">
+                <sapn
+                  id="todo-remind-btn"
+                  class="iconfont icon-butixing"
+                ></sapn>
+              </div>
+              <div class="oparate-wrap">
+                <button id="todo-add">Add</button>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="todo-content">
+            <!-- <sapn class="remain-time">100days</sapn> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="infor" style="display: none"></div>
+    <div id="todo-remind" style="display: none">
+      <div class="text todo-remind-text" id=""></div>
+      <div class="button">
+        <button class="mini-button close-todo-remind">x</button>
+      </div>
+    </div>
+    <script>
+      let nowUrl = "";
+      let nowCopyright = "";
+      var path = require("path");
+      const ipcRenderer = require("electron").ipcRenderer;
+      // const clipboard=require("electron").clipboard;
+      function $(i) {
+        return document.getElementById(i);
+      }
+
+      (function () {
+        var info = {};
+        let myWords = {};
+
+        let LoginTime = 0;
+        let TheVersion = 251214;
+
+        var messageTimer = null;
+        let mode = "url";
+        var copyBtns = null;
+        var isFrame = true;
+        var hideTimeout = null;
+        let baseUrl = "https://www.bing.com";
+        let bgImgTimer = null;
+        let todoTimer = null;
+        let clockTimer = null;
+        let todoSetTimeout = null;
+        let closeWebDiv = null;
+        let InformationTimer=null;
+        (async function () {
+          await fetch("http://bing.getlove.cn/latelyBingImageStory")
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (res) {
+              const item = res[0];
+              nowUrl = item.url;
+              nowCopyright = item.copyright;
+              let imgUrl = baseUrl + item.url;
+              document.body.style = `background:url(${imgUrl});
+           background-size: cover;
+           background-repeat: no-repeat;
+           background-position: center;`;
+            })
+            .catch(function (e) {
+              console.log("Oops, error");
+            });
+        })();
+        function d(n) {
+          if (n < 10) {
+            return "0" + n;
+          }
+          return n;
+        }
+
+        function time(n) {
+          let date = new Date();
+          let hour = date.getHours();
+          let mimute = date.getMinutes();
+          let second = date.getSeconds();
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          let year = date.getFullYear();
+          let hourStr = d(hour) + ":" + d(mimute) + ":" + d(second);
+          if (n == null) {
+            return hourStr;
+          } else if (n == "date") {
+            return d(day);
+          } else if (n == "month") {
+            return d(month);
+          } else if (n == "year") {
+            return d(year);
+          } else if (n == "ms") {
+            return date.getTime();
+          } else if (n == "y-m-d") {
+            return d(year) + "-" + d(month) + "-" + d(day);
+          } else if (n == "h:m") {
+            return d(hour) + ":" + d(mimute);
+          } else if (n == "h:m:s") {
+            return d(hour) + ":" + d(mimute) + ":" + d(second);
+          } else if (n == "y-m-d h:m:s") {
+            return (
+              d(year) +
+              "-" +
+              d(month) +
+              "-" +
+              d(day) +
+              " " +
+              d(hour) +
+              ":" +
+              d(mimute) +
+              ":" +
+              d(second)
+            );
+          }
+        }
+
+        function remaintime(n, str) {
+          let result = "";
+          let calculatetime = new Date().getTime() - n;
+
+          if (str == "color") {
+            if (calculatetime <= 0) {
+              result = "orange";
+            } else {
+              result = "red";
+            }
+          } else {
+            let tem = Math.abs(calculatetime);
+
+            if (tem > 86400000) {
+              result = parseInt(tem / 86400000) + "days";
+            } else {
+              let h = parseInt(tem / 3600000);
+              let m = parseInt((tem % 3600000) / 60000);
+
+              result = d(h) + ":" + d(m);
+            }
+          }
+
+          return result;
+        }
+        function getClass(i) {
+          return document.getElementsByClassName(i);
+        }
+
+        function excuteCopy(btn) {
+          document.onkeydown = function (ev) {
+            if (getClass("todo")[0].style.display == "none") {
+              clearTimeout(bgImgTimer);
+              $("app").style.background = "#ffffffc7";
+              bgImgTimer = setTimeout(() => {
+                $("app").style.background = "none";
+              }, 60000 * 1);
+            }
+
+            if (ev.shiftKey && ev.keyCode) {
+              for (let i = 0; i < btn.length; i++) {
+                if (
+                  btn[i].getAttribute("data-key").toLowerCase() ==
+                  ev.key.toLowerCase()
+                ) {
+                  btn[i].onclick();
+                }
+              }
+            }
+            if (ev.ctrlKey && ev.key == "e") {
+              $("show").onclick();
+            }
+            if (ev.ctrlKey && ev.key == "t") {
+              if (getClass("todo")[0].style.display == "none") {
+                $("user-app").style.display = "none";
+                getClass("todo")[0].style.display = "block";
+                $("todo-date-input").value = time("y-m-d");
+                $("todo-time-input").value = time("h:m");
+                $("todo-textarea").value = "clock";
+                $("todo-textarea").select();
+                $("app").style.background = "none";
+                clockTimer = setInterval(function () {
+                  let ms = time("ms").toString();
+                  ms = ms.substring(ms.length - 3, ms.length);
+                  getClass("clock")[0].innerHTML =
+                    time("y-m-d h:m:s") + " " + ms;
+                }, 10);
+              } else {
+                $("user-app").style.display = "block";
+                getClass("todo")[0].style.display = "none";
+                clearInterval(clockTimer);
+              }
+            }
+
+
+            // if (ev.altKey && ev.key == "c"){
+            //   clipboard.clear()
+            //  $("infor").innerHTML="clear."
+            //  $("infor").style.display="block"
+            //  setTimeout(()=>{
+            //  $("infor").style.display="none"
+            //  },1000)
+            // }
+
+          };
+        }
+
+        function change(s) {
+          return ipcRenderer.sendSync("changestr", {
+            name: TheVersion,
+            value: LoginTime,
+            str: s,
+          });
+        }
+
+        function get(s) {
+          return ipcRenderer.sendSync("getstr", {
+            name: TheVersion,
+            value: LoginTime,
+            str: s,
+          });
+        }
+
+        function renderTodo() {
+          $("todo-date-input").value = time("y-m-d");
+          $("todo-time-input").value = time("h:m");
+          $("todo-textarea").value = "clock";
+          $("todo-textarea").select();
+
+          let todoStr = ``;
+          for (let i = 0; i < info["todo"].length; i++) {
+            let item = info["todo"][i];
+
+            if (item.date == "everyday") {
+              info["todo"][i].fulltime =
+                time("y-m-d") + " " + item.time + ":00";
+            } else {
+              info["todo"][i].fulltime = item.date + " " + item.time + ":00";
+            }
+          }
+          info["todo"].sort((a, b) => {
+            return (
+              new Date(a.fulltime).getTime() - new Date(b.fulltime).getTime()
+            );
+          });
+
+          for (let i = 0; i < info["todo"].length; i++) {
+            let item = info["todo"][i];
+
+            todoStr += `
+          <li class="clearfix">
+              <div class="index">${i + 1}</div>
+              <div class="event-wrap">
+                <div class="text">
+                  ${item.event}
+                 </div>
+              </div>
+              <div class="time-wrap">
+                <div class="time-div">
+                  <span class="item-date">${item.date}</span><br>
+                  <sapn class="item-time">${
+                    item.time
+                  }</sapn><sapn data-full="${new Date(
+              item.fulltime
+            ).getTime()}" class="remain-time" style="background:none"></sapn>
+
+                  
+                 </div>
+              </div>
+              <div class="remind-wrap">
+                <span class="iconfont ${
+                  item.remind ? "icon-tixing2" : ""
+                }"></span> 
+              </div>
+              <div class="oparate-wrap">
+                <span class="iconfont icon-wancheng2 todo-complete" data-time="${
+                  item.writetime
+                }"></span>
+              
+              </div>
+            </li>
+          `;
+          }
+          getClass("todo-content")[0].innerHTML = todoStr;
+
+          let todoCompleteBtns = getClass("todo-complete");
+          for (let i = 0; i < todoCompleteBtns.length; i++) {
+            const element = todoCompleteBtns[i];
+            element.ondblclick = function () {
+              let dataTime = this.getAttribute("data-time");
+              for (let j = 0; j < info["todo"].length; j++) {
+                const item = info["todo"][j];
+                if (item.writetime == dataTime) {
+                  info["todo"].splice(j, 1);
+
+                  renderTodo();
+                  writeFile(
+                    path.resolve(__dirname, "./configue.json"),
+                    JSON.stringify(info)
+                  );
+                  break;
+                }
+              }
+            };
+          }
+
+          function excuteRemind() {
+            let nowtime = time("y-m-d") + " " + time("h:m:s");
+            let today = time("y-m-d") + " 00:00:00";
+            if (!window.CHECKJUDGE && nowtime == today) {
+              window.CHECKJUDGE = 1;
+              setTimeout(() => {
+                window.CHECKJUDGE = null;
+              }, 3000);
+              renderTodo();
+            }
+            for (let i = 0; i < info["todo"].length; i++) {
+              const item = info["todo"][i];
+              let todoTime = "";
+              if (item.date == "everyday") {
+                todoTime = time("y-m-d") + " " + item.time + ":00";
+              } else {
+                todoTime = item.date + " " + item.time + ":00";
+              }
+              if (item.remind && item.judge != nowtime && nowtime == todoTime) {
+                item.judge = nowtime;
+
+                $("todo-remind").style.display = "block";
+
+                if (window.IsPlaying) {
+                  getClass("todo-remind-text")[0].innerHTML +=
+                    "<br>" + item.event;
+                } else {
+                  getClass("todo-remind-text")[0].innerHTML = item.event;
+                }
+
+                if (!window.IsPlaying) {
+                  $("mp3").setAttribute(
+                    "src",
+                    "D:\\我的文档\\Music\\水木年华 - 完美世界 (自由版).mp3"
+                  );
+                  $("mp3").play();
+                  window.IsPlaying = true;
+                }
+
+                getClass("close-todo-remind")[0].onclick = function () {
+                  $("mp3").pause();
+                  $("todo-remind").style.display = "none";
+                  window.IsPlaying = false;
+                  clearTimeout(todoSetTimeout);
+                };
+                clearTimeout(todoSetTimeout);
+                todoSetTimeout = setTimeout(function () {
+                  $("mp3").pause();
+                  $("todo-remind").style.display = "none";
+                  window.IsPlaying = false;
+                }, 1000 * 30);
+              }
+            }
+
+            let remainTimeSpans = getClass("remain-time");
+            for (let i = 0; i < remainTimeSpans.length; i++) {
+              const element = remainTimeSpans[i];
+              let n = element.getAttribute("data-full");
+              element.innerHTML = remaintime(n);
+              element.style.background = remaintime(n, "color");
+            }
+          }
+          excuteRemind();
+          clearInterval(todoTimer);
+          todoTimer = setInterval(function () {
+            excuteRemind();
+          }, 1000);
+        }
+        //chang
+        function readRecord(n) {
+          var content = ipcRenderer.sendSync("readData", {
+            readPath: path.resolve(__dirname, "./record.json"),
+          });
+
+          if (content.err) {
+            getClass("message")[n].style.color = "red";
+            getClass("message")[
+              n
+            ].innerHTML = `<span>there is not such a file.is want to creat a new file?</span> <button class="mini-button choose-yes">√</button> <button class="mini-button choose-not">x</button>`;
+
+            getClass("choose-yes")[0].onclick = function () {
+              lifeData = {
+                bill: {
+                  subjects: [
+                    "food",
+                    "necessities",
+                    "clothes",
+                    "phone fee",
+                    "living cost",
+                  ],
+                },
+                behavior: {
+                  subjects: [
+                    "fantacy",
+                    "angry",
+                    "curse",
+                    "compare",
+                    "sex-fantacy",
+                    "hand",
+                  ],
+                },
+                record: {
+                  subjects: ["remarks", "notes", "thoughts", "ideas"],
+                },
+              };
+              writeFile(
+                path.resolve(__dirname, "./record.json"),
+                change(JSON.stringify(lifeData))
+              );
+              getClass("message")[n].style.color = "orange";
+              getClass("message")[n].innerHTML = "create file success";
+              clearMessage(n);
+            };
+            getClass("choose-not")[0].focus();
+            getClass("choose-not")[0].onclick = function () {
+              rerenderInt("Please check the file...", "red");
+            };
+          } else {
+            lifeData = JSON.parse(get(content.data.toString()));
+          }
+        }
+        function readFile() {
+          var content = ipcRenderer.sendSync("readData", {
+            readPath: path.resolve(__dirname, "./configue.json"),
+          });
+
+          if (content.err) {
+            alert(content.err);
+          } else {
+            info = JSON.parse(content.data.toString());
+            myWords=info.myWords
+          }
+        }
+
+        function writeFile(readPath, data, callback) {
+          var content = ipcRenderer.sendSync("writeData", {
+            readPath,
+            data,
+          });
+          if (content.err) {
+            alert(content.err);
+          } else {
+            callback && callback();
+          }
+        }
+
+        function load() {
+          readFile();
+
+          render("cmd", "cmd-tbody", "click_cmd");
+          render("url", "url-tbody", "click_li");
+          render("file", "file-tbody", "click_li");
+          render("quickCopy", "quick-copy-tbody", "click_quick_copy");
+          render("quickDefault", "quick-default", "");
+          render("pa", "pa-tbody", "click-pa");
+
+          let eyes = getClass("eyes");
+          for (let i = 0; i < eyes.length; i++) {
+            eyes[i].onclick = function () {
+              if (
+                this.getElementsByClassName("eyes-on")[0].style.display ==
+                "none"
+              ) {
+                this.getElementsByClassName("eyes-on")[0].style.display =
+                  "block";
+                this.getElementsByClassName("eyes-off")[0].style.display =
+                  "none";
+              } else {
+                this.getElementsByClassName("eyes-on")[0].style.display =
+                  "none";
+                this.getElementsByClassName("eyes-off")[0].style.display =
+                  "block";
+              }
+            };
+          }
+
+          let lis = getClass("click_li");
+          for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+              var tem = [...info["url"], ...info["file"]];
+              mode = this.getAttribute("mode");
+              $("int").value = "auto-quick-load" + tem[i]["content"];
+              $("btn").onclick();
+            };
+          }
+
+          let paLis = getClass("click-pa");
+          for (let i = 0; i < paLis.length; i++) {
+            paLis[i].onclick = function () {
+              mode = "url";
+              $("int").value = "auto-quick-load" + this.innerText;
+              $("btn").onclick();
+            };
+          }
+
+          let cmdLis = getClass("click_cmd");
+          for (let i = 0; i < cmdLis.length; i++) {
+            cmdLis[i].onclick = function () {
+              var t = ipcRenderer.sendSync(
+                "excutecmd",
+                info["cmd"][i]["content"]
+              );
+            };
+          }
+          copyBtns = getClass("click_quick_copy");
+          for (let i = 0; i < copyBtns.length; i++) {
+            copyBtns[i].onclick = function () {
+              $("needcopy").value = get(info["quickCopy"][i]["content"]);
+              $("needcopy").select();
+              document.execCommand("Copy");
+            };
+          }
+
+          let favouriteLInks = getClass("favourite-a");
+          for (let i = 0; i < favouriteLInks.length; i++) {
+            favouriteLInks[i].onclick = function () {
+              $("needcopy").value = favouriteLInks[i].getAttribute("data-link");
+              $("needcopy").select();
+              document.execCommand("Copy");
+            };
+          }
+          //edit
+          let dataEditBtns = getClass("data-edit");
+          for (let i = 0; i < dataEditBtns.length; i++) {
+            dataEditBtns[i].onclick = function () {
+              let theTable = this.parentNode.parentNode.parentNode.parentNode;
+              let theBtns = theTable.getElementsByClassName("edit-btn");
+              for (let j = 0; j < theBtns.length; j++) {
+                theBtns[j].style.display = "inline-block";
+                theBtns[j].onclick = function () {
+                  let theTable = this.parentNode.parentNode.parentNode;
+                  let mainName = theTable.getAttribute("key");
+
+                  if (theTable.getElementsByClassName("add-name")[0]) {
+                    return;
+                  }
+                  let obj = info[mainName][j];
+
+                  let tr = this.parentNode.parentNode;
+                  tr.className = "input-wrap";
+                  tr.innerHTML = `<td><input class="add-name"/></td><td><input class="add-content"/></td><td><input class="add-shortcut"/></td><td><button class="data-save">√</button> </td>`;
+
+                  theTable.getElementsByClassName("add-name")[0].value =
+                    obj.name;
+
+                  theTable.getElementsByClassName("add-content")[0].value =
+                    obj.content;
+
+                  theTable.getElementsByClassName("add-shortcut")[0].value =
+                    obj.shortcut;
+
+                  let saveBtns = theTable.getElementsByClassName("data-save");
+                  saveBtns[0].onclick = function () {
+                    let theTable = this.parentNode.parentNode.parentNode;
+                    let mainName = theTable.getAttribute("key");
+                    let name =
+                      theTable.getElementsByClassName("add-name")[0].value;
+                    let content =
+                      theTable.getElementsByClassName("add-content")[0].value;
+                    let shortcut =
+                      theTable.getElementsByClassName("add-shortcut")[0].value;
+                    if (mainName == "quickCopy") {
+                      content = change(content);
+                    }
+                    let tem = {
+                      name,
+                      content,
+                      shortcut,
+                      mode: mainName,
+                    };
+                    if (tem["name"] && tem["content"] && tem["shortcut"]) {
+                      info[mainName].splice(j, 1, tem);
+                    } else {
+                      alert("uncomplete information");
+                    }
+                    writeFile(
+                      path.resolve(__dirname, "./configue.json"),
+                      JSON.stringify(info),
+                      load
+                    );
+                  };
+
+                  // info[mainName].splice(j, 1);
+                };
+              }
+            };
+          }
+
+          //delete data or add one
+          let dataDelBtns = getClass("data-delete");
+          for (let i = 0; i < dataDelBtns.length; i++) {
+            dataDelBtns[i].onclick = function () {
+              let theTable = this.parentNode.parentNode.parentNode.parentNode;
+              let theBtns = theTable.getElementsByClassName("delete-one");
+              for (let j = 0; j < theBtns.length; j++) {
+                theBtns[j].style.display = "inline-block";
+                theBtns[j].onclick = function () {
+                  let theTable = this.parentNode.parentNode.parentNode;
+                  let mainName = theTable.getAttribute("key");
+
+                  if (info[mainName].length == 1) {
+                    alert("The first one is a demo and cannot be deleted");
+                  } else {
+                    info[mainName].splice(j, 1);
+                  }
+                  writeFile(
+                    path.resolve(__dirname, "./configue.json"),
+                    JSON.stringify(info),
+                    load
+                  );
+                };
+              }
+            };
+          }
+
+          let addBtns = getClass("add-new");
+          for (let i = 0; i < addBtns.length; i++) {
+            addBtns[i].onclick = function () {
+              let theTable = this.parentNode.parentNode.parentNode.parentNode;
+              if (theTable.getElementsByClassName("add-name")[0]) {
+                return;
+              }
+              let tr = document.createElement("tr");
+              tr.className = "input-wrap";
+              tr.innerHTML = `<td><input class="add-name"/></td><td><input class="add-content"/></td><td><input class="add-shortcut"/></td><td><button class="data-save">√</button></td>`;
+              theTable.tBodies[0].appendChild(tr);
+
+              let saveBtns = theTable.getElementsByClassName("data-save");
+              saveBtns[0].onclick = function () {
+                let theTable = this.parentNode.parentNode.parentNode;
+                let mainName = theTable.getAttribute("key");
+                let name = theTable.getElementsByClassName("add-name")[0].value;
+                let content =
+                  theTable.getElementsByClassName("add-content")[0].value;
+                let shortcut =
+                  theTable.getElementsByClassName("add-shortcut")[0].value;
+                if (mainName == "quickCopy") {
+                  content = change(content);
+                }
+                let tem = {
+                  name,
+                  content,
+                  shortcut,
+                  mode: mainName,
+                };
+                if (tem["name"] && tem["content"] && tem["shortcut"]) {
+                  info[mainName].push(tem);
+                } else {
+                  alert("uncomplete information");
+                }
+                writeFile(
+                  path.resolve(__dirname, "./configue.json"),
+                  JSON.stringify(info),
+                  load
+                );
+              };
+            };
+          }
+
+          $("int").value = "";
+          excuteCopy(copyBtns);
+          setTimeout(function () {
+            if ($("webs").style.display == "none") {
+              $("log-wrap").style.display = "none";
+            }
+          }, 5000);
+
+          //todo
+          if (!info["todo"]) {
+            info["todo"] = [];
+          }
+          renderTodo();
+        }
+
+        function render(url, tbody, c) {
+          let urlArr = info[url];
+          let str = ``;
+          if (urlArr.length > 0) {
+            for (let i = 0; i < urlArr.length; i++) {
+              let item = urlArr[i];
+              let dataKey = item["shortcut"].replace("shift+", "");
+
+              let changeresult = item["content"];
+              str += `<tr><td><button class=${c} mode=${url} data-key=${dataKey}>${item["name"]}</button></td><td class="eyes"><span class="eyes-off" style="display:block">...</span><span class="eyes-on" style="display:none">${changeresult}</span></td><td>${item["shortcut"]}</td><td><button class="delete-one" style="display:none;">X</button><button class="edit-btn" style="display:none;">e</button></td></tr>`;
+            }
+            $(tbody).innerHTML = str;
+            $(tbody).setAttribute("key", url);
+          }
+        }
+
+        $("user-psd").onkeydown = function (ev) {
+          if (ev.keyCode != 13) {
+            return;
+          }
+
+          let answer = ipcRenderer.sendSync("isAuth-message", this.value);
+          this.value = "";
+          if (answer.isAuth) {
+            LoginTime = answer.time;
+            $("log-info").innerHTML = answer.log;
+            $("user-psd-wraper").style.display = "none";
+            $("user-app").style.display = "block";
+            $("int").focus();
+            load();
+            setTimeout(() => {
+              //add http pa
+              for (let i = 0; i < info["pa"].length; i++) {
+                const item = info["pa"][i];
+
+                let obj = {
+                  serverUrl: item.name,
+                  serverPath: item.content,
+                  method: "text",
+                  other: item.shortcut,
+                };
+                ipcRenderer.send("sendhttp", obj);
+              }
+            }, 100);
+
+            ipcRenderer.sendSync("setIsFrame", {
+            isFrame,
+          });
+          }
+        };
+
+        $("btn").onclick = function () {
+          let url = $("int").value;
+          if (url == "q-set") {
+            show.onclick();
+            $("int").value = "";
+            return;
+          }
+          if (url.indexOf("auto-quick-load") > -1) {
+            url = url.replace("auto-quick-load", "");
+          } else if (url.indexOf("hand-load-url") > -1) {
+            url = url.replace("hand-load-url", "");
+            mode = "url";
+          } else if (url.indexOf("hand-load-file") > -1) {
+            url = url.replace("hand-load-file", "");
+            mode = "file";
+          } else {
+            url = url.replace("%", "%25");
+            url = url.replace("+", "%2B");
+            url = url.replace(" ", "+");
+            url = url.replace("/", "%2F");
+            url = url.replace("?", "%3F");
+            url = url.replace("=", "%3D");
+            url = url.replace("#", "%23");
+            url = url.replace(" ", "+");
+            url =
+              "http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" +
+              url;
+            mode = "url";
+          }
+
+          ipcRenderer.sendSync("excuteNewWidow", {
+            url,
+            mode,
+          });
+          $("int").value = "";
+        };
+
+        $("setIsFrame").onclick = function () {
+          isFrame = !isFrame;
+          $("disIsFrame").innerText = isFrame;
+          ipcRenderer.sendSync("setIsFrame", {
+            isFrame,
+          });
+        };
+
+        $("seturl").onclick = function () {
+          $("int").value = "hand-load-url";
+        };
+        $("setfile").onclick = function () {
+          $("int").value = "hand-load-file";
+        };
+
+        ipcRenderer.on("ping", (event, arg) => {
+          $("log-wrap").style.display = "none";
+          $("webs").style.display = "none";
+          $("user-psd-wraper").style.display = "block";
+          $("user-psd").focus();
+          $("user-app").style.display = "none";
+        });
+
+        ipcRenderer.on("answerPa", (event, arg) => {
+          let condition = arg.other.split("<")[1];
+          let res = arg.answer;
+
+          getClass("http-div")[0].innerHTML +=
+            res[0] + "----" + arg.other + "<br>";
+          if (parseInt(res[0]) < condition * 1) {
+            $("todo-remind").style.display = "block";
+            getClass("todo-remind-text")[0].innerHTML +=
+              res[0] + "----" + arg.other + "<br>";
+
+            getClass("close-todo-remind")[0].onclick = function () {
+              getClass("todo-remind-text")[0].innerHTML = "";
+              $("todo-remind").style.display = "none";
+            };
+          }
+        });
+
+        document.addEventListener("visibilitychange", function () {
+          ipcRenderer.sendSync("isActive", "");
+          clearTimeout(hideTimeout);
+
+          if (document.visibilityState == "hidden") {
+            hideTimeout = setTimeout(() => {
+              $("webs").style.display = "none";
+              $("log-wrap").style.display = "none";
+            }, 1000 * 10);
+          }
+        });
+
+        $("user-psd").focus();
+
+        let show = $("show");
+        show.onclick = function () {
+          if ($("webs").style.display == "none") {
+            $("webs").style.display = "block";
+            $("log-wrap").style.display = "block";
+            load();
+
+            clearTimeout(closeWebDiv);
+            closeWebDiv = setTimeout(function () {
+              $("webs").style.display = "none";
+              $("log-wrap").style.display = "none";
+            }, 1000 * 60 * 1);
+          } else {
+            clearTimeout(closeWebDiv);
+            $("webs").style.display = "none";
+            $("log-wrap").style.display = "none";
+          }
+        };
+        getClass("close-webs")[0].onclick = function () {
+          $("webs").style.display = "none";
+          $("log-wrap").style.display = "none";
+          $("app").style.background = "none";
+          clearTimeout(closeWebDiv);
+        };
+
+        //new fn
+
+        let regNumber = /^[0-9]+$/g;
+        let reg = /^[\+|\-][0-9]+(\.[0-9]*)?$/g;
+        let regbeavior = /^\*[1-9]+/g;
+        let regcalculate =
+          /^([(]?[0-9]+[.]?[0-9]*)([\+|\-|\*|\/])([0-9]+[.]?[0-9]*[)]?)/g;
+        let regWords = /^\![a-zA-Z]+/g;
+
+        var lifeData = {};
+
+        function clearMessage(n) {
+          clearTimeout(messageTimer);
+          messageTimer = setTimeout(function () {
+            getClass("message")[n].innerHTML = "";
+          }, 3000);
+        }
+
+        function renderPrompt(n, arr, element) {
+          getClass("prompt")[n].style.display = "block";
+          let str = "";
+          for (let i = 0; i < arr.length; i++) {
+            str += `<span data-name="${
+              arr[i]
+            }" class="prompt-wrap"><span class="prompt-index">${i + 1}.</span>${
+              arr[i]
+            }</span>`;
+          }
+          getClass("prompt")[n].innerHTML = str;
+          let prompts = getClass("prompt-wrap");
+          for (let i = 0; i < prompts.length; i++) {
+            prompts[i].onclick = function () {
+              element.value = prompts[i].getAttribute("data-name");
+            };
+          }
+        }
+        function promptChoose(ev, element, n) {
+          if (!ev.ctrlKey && ev.keyCode == 13) {
+            if (element.value.match(regNumber)) {
+              let index = element.value - 1;
+              let prompts = getClass("prompt-wrap");
+              if (prompts[index]) {
+                element.value = prompts[index].getAttribute("data-name");
+              } else {
+                getClass("message")[n].style.color = "red";
+                getClass("message")[n].innerHTML =
+                  "Enter err,please rewrite...";
+                clearMessage(n);
+                element.value = "";
+                element.focus();
+              }
+            }
+          }
+        }
+
+        function rerenderInt(message, color) {
+          getClass("search-wraper")[0].style.display = "block";
+          getClass("search-wraper")[1].style.display = "none";
+          getClass("main-btn")[0].style.display = "inline-block";
+          getClass("extra-fn")[0].style.display = "none";
+          getClass("search-border")[0].innerHTML = "";
+          $("int").value = "";
+          $("int").focus();
+          getClass("prompt")[0].style.display = "none";
+          getClass("prompt")[0].innerHTML = "";
+          getClass("message")[0].style.color = color;
+          getClass("message")[0].innerHTML = message;
+          clearMessage(0);
+        }
+        function saveData(temobj, objstr) {
+          let year = time("year");
+          let month = time("month");
+          if (!lifeData[objstr][year]) {
+            lifeData[objstr][year] = {};
+          }
+          if (lifeData[objstr][year][month]) {
+            lifeData[objstr][year][month].push(temobj);
+          } else {
+            lifeData[objstr][year][month] = [temobj];
+          }
+
+          writeFile(
+            path.resolve(__dirname, "./record.json"),
+            change(JSON.stringify(lifeData)),
+            rerenderInt("Save success.", "green")
+          );
+        }
+        function fnRender(str, defautstr, objstr) {
+          getClass("search-border")[0].innerHTML = `
+          <input class="other-input other-input-record" type="text" />
+          <input class="other-input other-input-record" type="text" placeholder=" ${defautstr}" />
+          <input class="other-input other-input-record" type="text" placeholder="remark" />
+          `;
+          $("save").onclick = function () {
+            let name = otherInputs[1].value;
+            if (name == "") {
+              name = defautstr;
+            }
+            if (lifeData[objstr]["subjects"].indexOf(name) == -1) {
+              getClass("message")[0].style.color = "red";
+              getClass(
+                "message"
+              )[0].innerHTML = `<span> Is it a new keyword? </span> <button class="mini-button choose-yes">√</button> <button class="mini-button choose-not">x</button>`;
+
+              getClass("choose-yes")[0].onclick = function () {
+                lifeData[objstr]["subjects"].push(name);
+                getClass("message")[0].innerHTML =
+                  "add success,please resubmit";
+                clearMessage(0);
+                otherInputs[1].focus();
+              };
+              getClass("choose-not")[0].focus();
+              getClass("choose-not")[0].onclick = function () {
+                getClass("message")[0].innerHTML = "please rewrite...";
+                clearMessage(0);
+                otherInputs[1].focus();
+              };
+              return;
+            }
+            let number = otherInputs[0].value.replace("*", "");
+            let remark = otherInputs[2].value;
+            let writeTime = time("ms");
+            let date = time("date");
+            let temobj = {
+              date,
+              name,
+              number,
+              remark,
+              writeTime,
+            };
+
+            saveData(temobj, objstr);
+          };
+          let otherInputs = getClass("other-input-record");
+          for (let i = 0; i < otherInputs.length; i++) {
+            otherInputs[i].onkeydown = function (ev) {
+              if (ev.ctrlKey && ev.keyCode == 13) {
+                $("save").onclick();
+              }
+            };
+          }
+
+          otherInputs[1].onfocus = function () {
+            renderPrompt(0, lifeData[objstr]["subjects"], otherInputs[1]);
+          };
+
+          otherInputs[1].onkeyup = function (ev) {
+            let element = this;
+            promptChoose(ev, element, 0);
+          };
+
+          otherInputs[0].value = str;
+          otherInputs[0].focus();
+        }
+
+        $("int").onkeyup = function (ev) {
+          let temstr = this.value;
+
+          if (temstr.match(reg)) {
+            readRecord(0);
+            getClass("main-btn")[0].style.display = "none";
+            getClass("extra-fn")[0].style.display = "inline-block";
+            if (temstr.substring(0, 1) == "+") {
+              fnRender(temstr, "living cost", "bill");
+            } else {
+              fnRender(temstr, "food", "bill");
+            }
+          }
+
+          if (temstr.match(regbeavior)) {
+            readRecord(0);
+            getClass("main-btn")[0].style.display = "none";
+            getClass("extra-fn")[0].style.display = "inline-block";
+            fnRender(temstr, "fantacy", "behavior");
+          }
+
+          if (ev.shiftKey && ev.keyCode == 13) {
+            getClass("search-wraper")[0].style.display = "none";
+            getClass("search-wraper")[1].style.display = "block";
+
+            readRecord(1);
+            if (lifeData["record"]) {
+              renderPrompt(
+                1,
+                lifeData["record"]["subjects"],
+                getClass("other-textarea")[0]
+              );
+            }
+            getClass("other-textarea")[0].value = "remarks";
+            getClass("other-textarea")[2].focus();
+          }
+
+          if (temstr.match(regcalculate)) {
+            if (!ev.shiftKey && ev.keyCode == 13) {
+              try {
+                getClass("information")[0].innerHTML +=
+                  "<p>" + temstr + "=" + eval(temstr) + "</p>";
+                getClass("information-wrap")[0].style.display = "block";
+              } catch (e) {
+                $("btn").onclick();
+              }
+            }
+          }
+
+          function renderMyWord() {
+            getClass("information-back")[0].style.display = "none";
+            getClass("information")[0].innerHTML = "";
+            for (let i in myWords) {
+              getClass("information")[0].innerHTML +=
+                "<p class='inf-detail'>" + i + "</p>";
+            }
+
+            getClass("information-wrap")[0].style.display = "block";
+
+            let infDetailBtns = getClass("inf-detail");
+            for (let i = 0; i < infDetailBtns.length; i++) {
+              infDetailBtns[i].onclick = function () {
+                getClass("information-back")[0].style.display = "inline-block";
+                getClass("information-back")[0].onclick = function () {
+                  renderMyWord();
+                };
+                getClass("information")[0].innerHTML =
+                  "<p>" + myWords[this.innerText] + "</p>";
+              };
+            }
+            clearTimeout(InformationTimer);
+            InformationTimer = setTimeout(() => {
+              getClass("information")[0].innerHTML = "";
+              getClass("information-wrap")[0].style.display = "none";
+            }, 1000 * 60 * 5);
+          }
+          if (temstr.match(regWords)) {
+            let str = temstr.replace("!", "");
+            if (str == "all") {
+              renderMyWord();
+            }
+            if (myWords[str]) {
+              getClass("information")[0].innerHTML =
+                "<p>" + myWords[str] + "</p>";
+              getClass("information-wrap")[0].style.display = "block";
+              clearTimeout(InformationTimer);
+              InformationTimer = setTimeout(() => {
+                getClass("information")[0].innerHTML = "";
+                getClass("information-wrap")[0].style.display = "none";
+              }, 1000 * 60 * 5);
+            }
+          }
+        };
+
+        getClass("other-textarea")[0].onfocus = function () {
+          if (lifeData["record"]) {
+            renderPrompt(
+              1,
+              lifeData["record"]["subjects"],
+              getClass("other-textarea")[0]
+            );
+          }
+        };
+
+        getClass("other-textarea")[0].onkeyup = function (ev) {
+          let element = this;
+          promptChoose(ev, element, 1);
+        };
+        $("btn-textarea-sub").onclick = function () {
+          let content = getClass("other-textarea")[2].value;
+          if (content == "") {
+            return;
+          }
+          let subject = getClass("other-textarea")[0].value;
+          subject = subject ? subject : "remarks";
+          let title = getClass("other-textarea")[1].value;
+
+          let writeTime = time("ms");
+          let date = time("date");
+          let temobj = {
+            date,
+            subject,
+            title,
+            content,
+            writeTime,
+          };
+
+          saveData(temobj, "record");
+          getClass("other-textarea")[2].value = getClass(
+            "other-textarea"
+          )[1].value = "";
+          getClass("other-textarea")[0].value = "remarks";
+        };
+        getClass("other-textarea")[2].onkeyup = function (ev) {
+          if (ev.ctrlKey && ev.keyCode == 13) {
+            $("btn-textarea-sub").onclick();
+          }
+        };
+        getClass("clear-calculate")[0].onclick = function () {
+          getClass("information")[0].innerHTML = "";
+          getClass("information-wrap")[0].style.display = "none";
+          $("app").style.background = "none";
+          $("int").value = "";
+        };
+
+        getClass("rerend-int")[0].onclick = function () {
+          if (
+            getClass("information-wrap")[0].style.display == "none" &&
+            $("webs").style.display == "none"
+          ) {
+            $("app").style.background = "none";
+          }
+          if (getClass("todo")[0].style.display == "block") {
+            getClass("todo")[0].style.display = "none";
+            $("user-app").style.display = "block";
+          }
+          rerenderInt("", "red");
+        };
+
+        $("everyday-checkbox").onclick = function () {
+          if (this.checked == true) {
+            $("todo-date-input").value = "";
+          } else {
+            $("todo-date-input").value = time("y-m-d");
+          }
+        };
+        let todoRemindJudge = false;
+        $("todo-remind-btn").onclick = function () {
+          if (!todoRemindJudge) {
+            todoRemindJudge = true;
+            this.className = "iconfont icon-tixing2";
+          } else {
+            todoRemindJudge = false;
+            this.className = "iconfont icon-butixing";
+          }
+        };
+
+        $("todo-add").onclick = function () {
+          if ($("todo-textarea").value == "") {
+            return;
+          }
+          let tem = {};
+          tem.event = $("todo-textarea").value;
+          tem.everyday = $("everyday-checkbox").checked;
+
+          if ($("everyday-checkbox").checked) {
+            tem.date = "everyday";
+          } else {
+            tem.date = $("todo-date-input").value;
+          }
+          tem.time = $("todo-time-input").value;
+          tem.remind = todoRemindJudge;
+
+          tem.writetime = time("ms");
+          info["todo"].push(tem);
+          writeFile(
+            path.resolve(__dirname, "./configue.json"),
+            JSON.stringify(info)
+          );
+
+          if ($("everyday-checkbox").checked) {
+            $("everyday-checkbox").click();
+          }
+          if (todoRemindJudge) {
+            $("todo-remind-btn").onclick();
+          }
+
+          renderTodo();
+        };
+      })();
+    </script>
+    <script>
+      const { remote } = require("electron");
+      //find
+      const { FindInPage } = require("electron-find");
+      let findInPage = new FindInPage(remote.getCurrentWebContents());
+      ipcRenderer.on("on-find", (e, args) => {
+        findInPage.openFindWindow();
+      });
+      //right click
+      var rightTemplate = [
+        {
+          label: "like",
+          click: () => {
+            var info = {};
+            function writeInfoFile(readPath, data, callback) {
+              var content = ipcRenderer.sendSync("writeData", {
+                readPath,
+                data,
+              });
+              if (content.err) {
+                alert(content.err);
+              } else {
+                callback && callback();
+              }
+            }
+
+            function readFile() {
+              var content = ipcRenderer.sendSync("readData", {
+                readPath: path.resolve(__dirname, "./configue.json"),
+              });
+
+              if (content.err) {
+                alert(content.err);
+              } else {
+                info = JSON.parse(content.data.toString());
+          
+              }
+            }
+            readFile();
+
+            for (let i = 0; i < info["like"].length; i++) {
+              if (info["like"][i].url == nowUrl) {
+                $("infor").innerHTML = "u already like it";
+                $("infor").style.display = "block";
+                setTimeout(() => {
+                  $("infor").style.display = "none";
+                }, 1000);
+                return;
+              }
+            }
+
+            let obj = {
+              url: nowUrl,
+              copyright: nowCopyright,
+            };
+
+            if (info["like"]) {
+              info["like"].push(obj);
+            } else {
+              info["like"] = [obj];
+            }
+            writeInfoFile(
+              path.resolve(__dirname, "./configue.json"),
+              JSON.stringify(info)
+            );
+
+            $("infor").innerHTML = "like";
+            $("infor").style.display = "block";
+            setTimeout(() => {
+              $("infor").style.display = "none";
+            }, 1000);
+          },
+        },
+      ];
+      var m = remote.Menu.buildFromTemplate(rightTemplate);
+
+      window.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        m.popup({ window: remote.getCurrentWindow() });
+      });
+      
+
+    //   globalShortcut.register("alt+l", () => {
+    //     clipboard.writeText("qwe123")
+    // });
+   
+   </script>
+  </body>
+</html>

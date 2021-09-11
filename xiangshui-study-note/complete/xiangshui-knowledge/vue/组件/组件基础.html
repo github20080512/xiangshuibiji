@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <!-- 我们推荐你始终使用 kebab-case 的事件名 -->
+        <component-a title="从父组件传递过来的title" v-on:my-event="doSomething"></component-a>
+    </div>
+    <script>
+        let ComponentA={
+            data: function () {
+                return {
+                count: 0
+            }},
+            props: ['title'],
+            template:`<p @click="click">组件：{{title}}</p>`,
+            methods:{
+                click:function(){
+                    // emit 
+                    this.$emit('my-event',"  携带的内容")
+                    alert("向父组件emit")
+                }
+            }
+        }
+
+      let app=new Vue({
+        el:"#app",
+        data:{
+          message:12
+        },
+        components: {
+         'component-a': ComponentA,
+  },
+  methods:{
+    doSomething:function(a){
+        console.log(a)
+        alert("从组件向父元素发送事件"+a)
+    }
+  }
+      })
+
+
+    </script>
+</body>
+</html>

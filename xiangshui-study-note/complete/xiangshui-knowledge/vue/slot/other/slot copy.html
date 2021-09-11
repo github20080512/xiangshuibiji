@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <current-user>
+        <template v-slot:default="slotProps">
+          {{ slotProps.user.firstName }}
+        </template>
+      </current-user>
+    </div>
+
+    <script>
+      const currentUser = {
+        data:function(){
+          return  {
+            user:{
+           firstName:"jay",
+           lastName:"chou"
+         }
+          }
+        },
+        template: `
+        <span>
+          <slot v-bind:user="user">{{ user.lastName }}</slot>
+        </span>
+          `,
+      };
+      new Vue({
+        el: "#app",
+        data: {
+        
+        },
+        components: {
+          currentUser,
+        },
+      });
+    </script>
+  </body>
+</html>

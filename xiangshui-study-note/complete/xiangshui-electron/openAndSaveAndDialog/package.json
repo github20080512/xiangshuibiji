@@ -1,0 +1,27 @@
+{
+    "name": "dialog",
+    "version": "1.0.0",
+    "description": "myapp",
+    "main": "main.js",
+    "build": {
+        "appId": "com.xxx.app",
+        "mac": {
+            "target": ["dmg", "zip"]
+        },
+        "win": {
+            "target": ["nsis", "zip"]
+        }
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dist": "electron-builder --win --x64"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.54",
+        "electron-builder": "^22.10.5",
+        "electron": "12.0.2"
+    }
+}

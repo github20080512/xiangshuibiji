@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+    
+      <navigation-Link url="/profile">
+        {{message}}
+        <!-- Clicking here will send you to: {{ url }} -->
+        <!--
+        这里的 `url` 会是 undefined，因为其 (指该插槽的) 内容是
+        _传递给_ <navigation-link> 的而不是
+        在 <navigation-link> 组件*内部*定义的。
+        -->
+        </navigation-Link>
+    </div>
+
+    <script>
+      const navigationLink = {
+        props:["url"],
+        template: `
+          <a
+            v-bind:href="url"
+            class="nav-link"
+            >
+            <slot></slot>
+          </a>
+          `,
+      };
+      new Vue({
+        el: "#app",
+        data: {
+          message: 112,
+        },
+        components: {
+          navigationLink,
+        },
+      });
+    </script>
+  </body>
+</html>

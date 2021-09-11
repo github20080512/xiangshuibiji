@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .iterm {
+        width: 230px;
+        height: 300px;
+        border: 1px dashed black;
+        text-align: center;
+        line-height: 300px;
+        display: none;
+      }
+      .active {
+        background: skyblue;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var oTab2 = new tabSwitch("div2");
+      };
+      function tabSwitch(id) {
+        console.log(this); //tabSwitch
+        var _this = this;
+        var oDiv1 = document.getElementById(id);
+        this.aBtn = oDiv1.getElementsByTagName("input");
+        this.aDiv = oDiv1.getElementsByTagName("div");
+        for (var i = 0; i < this.aBtn.length; i++) {
+          this.aBtn[i].index = i;
+          this.aBtn[i].onclick = function () {
+            _this.tab(this);
+          };
+        }
+      }
+      tabSwitch.prototype.tab = function (a) {
+        console.log("prototype");
+        console.log(this); //tabSwitch
+        for (var i = 0; i < this.aBtn.length; i++) {
+          this.aBtn[i].className = "";
+          this.aDiv[i].style.display = "none";
+        }
+        a.className = "active";
+        this.aDiv[a.index].style.display = "block";
+      };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <input class="active" id="btn1" type="button" value="music" />
+      <input id="btn2" type="button" value="news" />
+      <input id="btn3" type="button" value="article" />
+      <div style="display: block" class="iterm">music</div>
+      <div class="iterm">news</div>
+      <div class="iterm">article</div>
+    </div>
+    <div id="div2">
+      <input class="active" id="btn1" type="button" value="music" />
+      <input id="btn2" type="button" value="news" />
+      <input id="btn3" type="button" value="article" />
+      <div style="display: block" class="iterm">music</div>
+      <div class="iterm">news</div>
+      <div class="iterm">article</div>
+    </div>
+  </body>
+</html>

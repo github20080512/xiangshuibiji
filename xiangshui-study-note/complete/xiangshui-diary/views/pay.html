@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Diary</title>
+    <style>
+        body,
+        p,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .left {
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        .clearfix:after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+        
+        li {
+            text-decoration: none;
+            list-style-type: none;
+        }
+        
+        body {
+            background-color: #eff4f7;
+        }
+        
+        .header {
+            width: 100%;
+            height: 50px;
+            background: #222;
+        }
+        
+        .container {
+            width: 992px;
+            margin: 0 auto;
+        }
+        
+        .footer .container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .content .container,
+        .footer .container {
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        .header a {
+            color: #999;
+            padding: 15px;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 20px;
+        }
+        
+        .header a:hover {
+            color: #fff;
+        }
+        
+        .new-user {
+            margin-top: 15px;
+            margin: 15px;
+        }
+        
+        .new-user a {
+            color: #428bca;
+        }
+        
+        .img-wrapper {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            overflow: hidden;
+            margin-top: -6px;
+            vertical-align: middle;
+        }
+        
+        .img-wrapper img {
+            width: 100%;
+        }
+        
+        .user {
+            display: inline-block;
+        }
+        
+        .user span {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .preview {
+            width: 100%;
+            border-radius: 4px;
+            background: #fff;
+            padding: 20px 85px;
+            margin-bottom: 20px;
+            padding-bottom: 23px;
+            box-sizing: border-box;
+        }
+        
+        .preview .date {
+            height: 60px;
+            line-height: 50px;
+            color: #dc5b00;
+            margin-right: 35px;
+        }
+        
+        .preview .words {
+            min-height: 37px;
+        }
+        
+        .fn-area {
+            margin-bottom: 15px;
+        }
+        
+        .fn-area button:hover {
+            color: #808080;
+        }
+        
+        label {
+            display: inline-block;
+            padding: 15px;
+            font-weight: bold;
+            text-align: right;
+            width: 118px;
+        }
+        
+        .form-control {
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555;
+            vertical-align: middle;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        
+        .form-control:focus {
+            border-color: #66afe9;
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+        
+        .form-sub {
+            color: #333;
+            background-color: #fff;
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.428571429;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            border-color: #ccc;
+            user-select: none;
+            margin-left: 152px;
+            margin-top: 15px;
+        }
+        
+        .form-sub:hover {
+            color: #333;
+            background-color: #ebebeb;
+            border-color: #222222;
+        }
+        
+        .detail-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .detail-group p {
+            font-size: 20px;
+            color: orange;
+        }
+        
+        .money,
+        .remark {
+            font-size: 12px;
+        }
+        
+        .money {
+            color: #14ba89;
+            margin-right: 45px;
+            width: 70px;
+            display: inline-block;
+            font-size: 18px;
+        }
+        
+        .detail-group li {
+            border-bottom: 1px solid silver;
+            padding-left: 75px;
+        }
+        
+        .total {
+            font-size: 15px;
+            margin: 0px 15px;
+        }
+        
+        .fa-wraper {
+            height: 65px;
+        }
+        
+        .h2-wraper {
+            float: left
+        }
+        
+        .total-wraper {
+            float: right;
+            margin-top: 15px
+        }
+        
+        .fn-wraper {
+            float: right;
+            margin-top: 15px;
+            margin-left: 45px
+        }
+        
+        .fn-wraper button {
+            cursor: pointer;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: #14ba89
+        }
+        
+        .orange {
+            color: orange;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="links">
+                <div class="left">
+                    <a href="/index">My diary</a>
+                    <a href="/pay">Pay</a>
+                </div>
+                <div class="right">
+                    <div class="user">
+                        <div class="img-wrapper">
+                            <img src="/img/beer.jpg" alt="" />
+                        </div>
+                        <span>{{user}}</span>
+                    </div>
+                    <a href="/logout">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h2>Record every point in life</h2>
+
+
+            <hr />
+            <div class="fn-area">
+                <form id="pay_form" action="">
+                    <div class="group">
+                        <label for="money">Money</label>
+                        <input class="form-control" type="text" name="money" />
+                        <input type="hidden" id="write_date" name="date" />
+                    </div>
+                    <div class="group">
+                        <label for="remark">Remark</label>
+                        <input class="form-control" type="text" name="remark" />
+                    </div>
+                    <div>
+                        <button class="form-sub" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+            <hr />
+            <div class="fa-wraper">
+                <h2 class="h2-wraper">Detail</h2>
+                <div class="fn-wraper">
+                    <button id="pay-del">del all</button>
+                </div>
+                <div class="total-wraper">
+                    <span class="total">Total revenue:</span> <span class="green" id="revenue"></span>
+                    <span class="total">total expenses:</span> <span class="red" id="expenses"></span>
+                    <span class="total">Balance:</span><span class="orange" id="balance"></span>
+                </div>
+
+
+            </div>
+
+            <div class="preview">
+                <div class="detail-group clearfix">
+                    <div class="detail-money"></div>
+
+
+
+                    <ul id="detail-render">
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="container">© 2015 - 2021 MyDiary</div>
+    </div>
+
+    <script src="/jquery/dist/jquery.js"></script>
+
+    <script>
+        $.ajax({
+            url: "/paypage",
+            type: "post",
+            data: "",
+            dataType: "json",
+            success: function(data) {
+
+                if (data) {
+                    data.reverse();
+                    let revenue = 0
+                    let expenses = 0
+                    let balance = 0
+                    data.forEach((item) => {
+                        let colorStyle = ""
+                        let num = item.money * 1
+
+
+                        if (num < 0) {
+                            colorStyle = 'red'
+                            expenses += num
+                        } else {
+                            revenue += num
+
+                        }
+                        balance = revenue + expenses
+                        $("#expenses")[0].innerText = expenses
+                        $("#revenue")[0].innerText = revenue
+                        $("#balance")[0].innerText = balance
+
+                        $(
+                            "#detail-render"
+                        )[0].innerHTML += `<li> <sapn class="date">${item.date}</sapn> <sapn class="money ${colorStyle}">${num.toFixed(2)}</sapn> <sapn class="remark">${item.remark}</sapn> </li>`;
+                    });
+                }
+            },
+        });
+
+
+
+
+
+
+        $("#pay_form").on("submit", function(e) {
+            let theDate = new Date();
+            let year = theDate.getFullYear();
+            let month = theDate.getMonth() + 1;
+            let day = theDate.getDate();
+
+
+            $("#write_date")[0].value = year + "-" + month + "-" + day;
+
+
+            e.preventDefault();
+            let formData = $(this).serialize();
+
+            $.ajax({
+                url: "/pay",
+                type: "post",
+                data: formData,
+                dataType: "json",
+                success: function(data) {
+
+                    if (data.err_code === 0) {
+                        alert("serve err");
+                    } else {
+                        alert("save success");
+                        window.location.href = "/pay";
+                    }
+                },
+            });
+        });
+
+        $("#pay-del")[0].onclick = function() {
+            $.ajax({
+                url: "/delelepay",
+                type: "post",
+                data: "",
+                dataType: "json",
+                success: function(data) {
+
+                    if (data.err_code === 0) {
+                        alert("serve err");
+                    } else {
+                        alert("delete success");
+                        window.location.href = "/pay";
+                    }
+                },
+            });
+        }
+    </script>
+</body>
+
+</html>

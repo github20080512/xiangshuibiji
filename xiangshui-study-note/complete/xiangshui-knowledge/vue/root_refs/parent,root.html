@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>dad</h2>
+
+      <capp></capp>
+      <capp></capp>
+      <capp ref="ab"></capp>
+      <capp></capp>
+    </div>
+
+    <template id="scan">
+      <div>
+        <p>son component</p>
+        <button @click="getfn">button</button>
+      </div>
+    </template>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+
+        methods: {
+          fn() {
+            console.log("used");
+          },
+        },
+        components: {
+          capp: {
+            template: `#scan `,
+            data: function () {
+              return { num: 115 };
+            },
+
+            methods: {
+              getfn() {
+                console.log(this.$parent);
+                console.log(this.$root);
+                this.$root.fn();
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

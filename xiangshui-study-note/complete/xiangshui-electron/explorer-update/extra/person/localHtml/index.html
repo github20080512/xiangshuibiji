@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>control</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/iconfont/iconfont.css">
+  <style id="html-style">
+  </style>
+</head>
+
+<body>
+  <div class="welcome-header-wrap">
+    <header>
+      <ul class="header-nav container clearfix">
+        <li class="logo"><a href="">CONTROL</a></li>
+        <li class="header-nav-item-info">
+          <span class="user-login" style="display: inline-block;"><a href="javascript:;"
+              class="header_login">Login</a></span>
+          <span class="user-name" style="display: none;"> Admin </span>
+          <span class="user-logout" style="display: none;">
+            <span class="header_vline"></span>
+            <a class="user-logout-btn" href=""></a>
+          </span>
+
+        </li>
+     
+       
+        <li style="display: none;" id="hide-li1" class="header-nav-item"><a href="javascript:;" class="nav-btn" data-name="diary">Diary</a></li>
+        <li style="display: none;" id="hide-li2" class="header-nav-item"><a href="javascript:;" class="nav-btn" data-name="behavior">Behavior</a></li>
+        <li style="display: none;" id="hide-li3"  class="header-nav-item"><a href="javascript:;" class="nav-btn" data-name="bill">Bill</a></li>
+        <li class="header-nav-item music-item">
+          <a href="javascript:;" class="nav-btn music-btn" data-name="music">Music</a>
+          <div class="mp3" style="display: none;">
+            <audio id="mp3" controls loop>
+              <source src="D:\我的文档\Music\水木年华 - 完美世界 (自由版).mp3" type="audio/mpeg" style="float: right;" />
+            </audio>
+            <ul class="music-wrap">
+            
+              </ul>
+          </div>
+        </li>
+        <li class="header-nav-item active"><a href="javascript:;" class="nav-btn" data-name="home">Home</a></li>
+      </ul>
+    </header>
+
+  </div>
+
+  <div id="home" class="home-div" style="display: block;">
+   <div class="zuoyouming">
+    <div class="zuoyouming-container">
+      <p>Don't believe</p>
+      <p>
+       what you see
+      </p>
+      <p>what you hear</p>
+      <p> what you think</p>
+      <p>You have been dead</p>
+    </div>
+   </div>
+    <div class="banner-wrap">
+      <div class="img-inf" style="display: none;">
+        <div class="img-inf-text" style="display: none;"></div>
+        <a href="javascript:;" class="img-inf-btn like">like</a>
+        <a href="javascript:;" class="img-inf-btn leftNav"></a>
+        <a href="javascript:;" class="img-inf-btn rightNav"></a>
+       </div>
+      <ul class="banner clearfix">
+      </ul>
+    </div>
+    <div class="favourite container">
+    </div>
+  </div>
+
+  <div class="diary" id="diary" style="display: none;">
+    <div class="bg1">
+      <div class="bg1-c"></div>
+    </div>
+    <div class="mainContent">
+      <div class="type-menu">
+        <ul class="type-menu-ul">
+          <li class="animation diary-nav-animation" style="left:30px;animation: 0.2s mymove linear;">all</li>
+          <li class="tm-n diary-nav-btn" data-name="all"><a href="javascript:;">all</a></li>
+          <li class="tm-n diary-nav-btn" data-name="remarks"><a href="javascript:;">remarks</a></li>
+          <li class="tm-n diary-nav-btn" data-name="notes"><a href="javascript:;">notes</a></li>
+          <li class="tm-n diary-nav-btn" data-name="thoughts"><a href="javascript:;">thoughts</a></li>
+          <li class="tm-n diary-nav-btn" data-name="ideas"><a href="javascript:;">ideas</a></li>
+          <li class="tm-n diary-add-btn"><a href="javascript:;">new</a></li>
+
+
+        </ul>
+
+      </div>
+      <div class="article-preview" style="display: block;">
+
+      </div>
+      <div class="article-detail" style="display: none;">
+        <div class="editBtnDiv clearfix">
+          <button class="edit-btn btn-common-yellow article-btn" id="diary-edit">edit</button>
+          <button class="edit-btn btn-common-yellow article-btn" id="diary-delete">delete</button>
+        </div>
+        <div class="article-detail-wrap"></div>
+      </div>
+      <div class="article-edit" style="display: none;">
+        <div class="title-edit-area">
+          <div class="subject-select">
+
+            <span class="">
+
+              <input class="input-select article-subject-select" readonly type="text" value="remarks">
+              <div class="select-wrap" style="display: none;">
+                <ul class="select-box">
+                  <li><span>remarks</span></li>
+                  <li><span>notes</span></li>
+                  <li><span>thoughts</span></li>
+                  <li><span>ideas</span></li>
+                </ul>
+              </div>
+            </span>
+          </div>
+          <div class="article-title-edit">
+            <input id="article-title-input" type="text" placeholder="title">
+          </div>
+        </div>
+        <div class="editDiv">
+          <textarea name="" id="diary-textarea" cols="30" rows="10"></textarea>
+        </div>
+        <div class="saveBtnDiv">
+          <button id="article-save-btn" class="edit-btn btn-common-yellow article-save-btn">save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bill" style="display: none;">
+    <div class="bg1">
+      <div class="bg1-c"></div>
+    </div>
+    <div class="mainContent">
+      <div id="type">
+        <div id="type-m">
+          <div class="type-menu">
+            <ul class="type-menu-ul">
+              <li class="animation">Add</li>
+              <li class="tm-n"><a href="">Add</a></li>
+
+            </ul>
+          </div>
+          <div class="type-box">
+            <div class="type-box-wrap">
+              <ul class="type-box-ul clearfix">
+                <li class="tb-li">
+                  <label for="">name</label>
+                  <span class="">
+                    <a href=""></a>
+                    <input class="input-select bill-input-select" readonly type="text" value="food">
+                    <div class="select-wrap" style="display: none;">
+                      <ul class="select-box bill-select-options">
+
+                      </ul>
+                    </div>
+                  </span>
+
+                </li>
+                <li class="tb-li">
+                  <label for="">money</label>
+                  <span class="">
+
+                    <input class="input-write bill-money" type="text" value="">
+
+                  </span>
+
+                </li>
+                <li class="tb-li">
+                  <label for="">remark</label>
+                  <span>
+                    <input class="input-write remark bill-remark" type="text" value=""
+                      placeholder="click here to remark...">
+                  </span>
+                </li>
+                <li class="tb-li">
+                  <button class="edit-btn btn-common-yellow" id="bill-save">save</button>
+                </li>
+              </ul>
+              <ul class="type-box-ul clearfix">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="detail-box-title">
+          <h4>account list</h4>
+          <div class="date">
+            <div class="date-choose-wrap">
+              <span class="date-begin bill-date-begin">2021.7.01</span>
+              <span> ～ </span>
+              <span class="date-end bill-date-end">2021.7.01</span>
+            </div>
+            <div class="date-choose" style="display: none;">
+              from: <input class="date-choose-from" type="month"> to: <input class="date-choose-to" type="month">
+              <button class="date-choose-confirm">confirm</button>
+            </div>
+          </div>
+
+          <div class="total">totalPayout <span class="green number bill-total-payout"></span>
+            <span class="line"></span>
+            totalIncome
+            <span class="orange number bill-total-income"></span>
+            <span class="line"></span>
+            remain <span class="gray number bill-total-remain"></span>
+          </div>
+        </div>
+        <div class="filter-content clearfix">
+          <div class="fc-left">
+            <div class="fcy-box">
+              2022 Year
+            </div>
+            <a href="javascript:;" class="frc-next"></a>
+            <div class="fc-month">
+              <div class="fc-month-box bill-month-box" style="top: 0;">
+
+
+              </div>
+            </div>
+            <a href="javascript:;" class="frc-prev"></a>
+          </div>
+          <div class="fc-right">
+            <div class="title">
+              <span>
+                Name
+              </span>
+              <span>
+                Number
+              </span>
+              <span>
+                Remark
+              </span>
+            </div>
+            <div class="list bill-list-wrap">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="behavior" style="display: none;">
+    <div class="bg1">
+      <div class="bg1-c"></div>
+    </div>
+    <div class="mainContent">
+      <div id="type">
+        <div id="type-m">
+          <div class="type-menu">
+            <ul class="type-menu-ul">
+              <li class="animation">Add</li>
+              <li class="tm-n"><a href="">Add</a></li>
+            </ul>
+          </div>
+          <div class="type-box">
+            <div class="type-box-wrap">
+              <ul class="type-box-ul clearfix">
+                <li class="tb-li">
+                  <label for="">name</label>
+                  <span class="">
+                    <a href=""></a>
+                    <input class="input-select behavior-input-select" readonly type="text" value="fantacy">
+                    <div class="select-wrap" style="display: none;">
+                      <ul class="select-box behavior-select-options">
+
+                      </ul>
+                    </div>
+                  </span>
+
+                </li>
+                <li class="tb-li">
+                  <label for="">times</label>
+                  <span class="">
+                    <input class="input-write behavior-money" type="text" value="">
+                  </span>
+
+                </li>
+                <li class="tb-li">
+                  <label for="">remark</label>
+                  <span>
+                    <input class="input-write remark behavior-remark" type="text" value=""
+                      placeholder="click here to remark...">
+                  </span>
+                </li>
+                <li class="tb-li">
+                  <button class="edit-btn btn-common-yellow" id="behavior-save">save</button>
+                </li>
+              </ul>
+              <ul class="type-box-ul clearfix">
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="detail-box-title">
+          <h4>account list</h4>
+          <div class="date">
+            <div class="date-choose-wrap date-choose-wrap-s">
+              <span class="date-begin behavior-date-begin">2021.7.01</span>
+              <span> ～ </span>
+              <span class="date-end behavior-date-end">2021.7.01</span>
+            </div>
+
+            <div class="date-choose" style="display: none;">
+              from: <input class="date-choose-from" type="month"> to: <input class="date-choose-to" type="month">
+              <button class="date-choose-confirm">confirm</button>
+            </div>
+          </div>
+          <div class="duration">
+            <span class="tip silver"> Number of days since the last</span> positive behavior <span
+              class="number green positive-days"> NaN </span><span class="line"></span> negative behavior <span
+              class="number red negtive-days"> NaN </span>
+          </div>
+        </div>
+        <div class="filter-content clearfix">
+          <div class="fc-left">
+            <div class="fcy-box-s">
+              2022 Year
+            </div>
+            <a href="javascript:;" class="frc-next"></a>
+            <div class="fc-month">
+              <div class="fc-month-box behavior-month-box fc-month-box-s" style="top: 0;">
+              </div>
+            </div>
+            <a href="javascript:;" class="frc-prev"></a>
+          </div>
+          <div class="fc-right">
+            <div class="behavior-total">
+              <div class="title">
+                <span>
+                  Name
+                </span>
+                <span>
+                  Number
+                </span>
+                <span>
+                  Number of days since the last action
+                </span>
+              </div>
+              <div class="list behavior-total-list">
+
+              </div>
+            </div>
+            <div class="behavior-detail">
+              <div class="title">
+                <span>
+                  Name
+                </span>
+                <span>
+                  Number
+                </span>
+                <span>
+                  Remark
+                </span>
+              </div>
+              <div class="list behavior-list-wrap">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="confirm-div" style="display: none;">
+    <div class="cModelOverlay">
+    </div>
+    <div class="confirm-wrap">
+      <a href="javascript:;" class="confirm-close">close</a>
+      <div class="confirm-title">
+        Operation tips
+      </div>
+      <div class="confirm-body">
+        <div class="confirm-tip">are you sure delete this item?</div>
+        <div class="confirm-btn">
+          <button class="edit-btn btn-common-yellow" id="confirm-sure">confirm</button>
+          <button class="edit-btn normal" id="confirm-cancel">cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-div" style="display: none;">
+    <div class="bg1">
+      <div class="bg1-c"></div>
+    </div>
+    <div class="login-wrap">
+      <div class="account-wrap">
+        <input class="login-input" type="text" placeholder="enter account" value="Admin">
+      </div>
+      <div class="psd-wrap">
+        <input class="login-input" type="password" id="psd" placeholder="enter password">
+      </div>
+      <div class="submit">
+        <button class="edit-btn btn-common-yellow" id="login">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-screen" style="display: none;">
+    <img class="full-screen-img" src="" alt="">
+    <div class="img-inf" style="display: inline-block;">
+      <div class="img-inf-text" style="display: inline-block;"></div>
+      <a href="javascript:;" class="img-inf-btn full-close"></a>
+      <a href="javascript:;" class="img-inf-btn full-info">i</a>
+      <a href="javascript:;" class="img-inf-btn leftNav"></a>
+      <a href="javascript:;" class="img-inf-btn rightNav"></a>
+     </div>
+  </div>
+
+ 
+
+  <script src="./index.js"></script>
+  <script>
+    const { remote, ipcRenderer }=require('electron')
+      const { FindInPage }=require('electron-find')
+      let findInPage = new FindInPage(remote.getCurrentWebContents())
+      ipcRenderer.on('on-find', (e, args) => {
+        findInPage.openFindWindow()
+      })
+  </script>
+
+
+</body>
+
+</html>
